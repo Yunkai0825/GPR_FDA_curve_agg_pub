@@ -1,0 +1,1431 @@
+
+======================================================================
+FDA-GPR: Functional Data Analysis - Gaussian Process Regression
+======================================================================
+Settings File: ./_input\CCNF_CTAB_PT\settings_summary_GPR_CCNF_CTAB_PT.json
+Batch Mode: Combining 11 subdirectories into one dataset
+  - 20230422 FeNiCoCu acidB-BU
+  - 20230424 FeNiCoCu acidB-BUR1
+  - 20230501 FeNiCoCu acidB-BV
+  - 20230503 FeNiCoCu acidB-BVR1
+  - 20230504 FeNiCoCu acidB-BVR2
+  - 20230509 FeNiCoCu acidB-BVR5
+  - 20230512 FeNiCoCu acidB-BVR6
+  - 20230611 FeNiCoCu acidB-BWR3
+  - 20230612 FeNiCoCu acidB-BWR4
+  - 20230613 FeNiCoCu acidB-BWR5
+  - 20230616 FeNiCoCu acidB-BWR6
+
+Output Base: ./_output\CCNF_CTAB_PT_output
+Step(s) to run: 2a
+
+============================================================
+STEP 2: Batch Grid Testing (pip5)
+============================================================
+  Input:  ./_output\CCNF_CTAB_PT_output\individual_GPR
+  Output: ./_output\CCNF_CTAB_PT_output\batch_testing
+  Found 7 group keys: ['-2.35', '-2.25', '-2.15', '-2.05', '-1.95', '-1.85', '-1.75']
+
+[Step 2.1] Building testing grid...
+  include_fgpr: True (from settings)
+  include_student_t: True (from settings)
+  2 combinations to test (2 (filtered)):
+    - NS_norm__AM_student_t
+    - NS_real__AM_student_t
+
+[Step 2.2] Configuring batch testing...
+  run_summary_gpr: True
+  run_efficiency_eval: False
+  run_comparison_plots: True
+
+[Step 2.3] Running batch testing...
+Starting batch testing with 2 combinations
+Input directory: ./_output\CCNF_CTAB_PT_output\individual_GPR
+Output base: ./_output\CCNF_CTAB_PT_output\batch_testing
+
+Combinations to test:
+  - NS_norm__AM_student_t
+  - NS_real__AM_student_t
+
+============================================================
+Processing: NS_norm__AM_student_t
+============================================================
+
+[Step 1] Running Summary GPR...
+Loading individual GPRs from: ./_output\CCNF_CTAB_PT_output\individual_GPR
+Found 185 files matching pattern 'Individual_GPR_*.csv'
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-7_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-7_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-11_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-11_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-7_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-7_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-3_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-3_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-5R_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-5R_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-1_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-1_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2R_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2R_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-3R_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-3R_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-4_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-4_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-5_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-5_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-6_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-6_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-1_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-1_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2R2_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2R2_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-3_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-3_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-4_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-4_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-5_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-5_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-6_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-6_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-7_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-7_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-10_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-10_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-11_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-11_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-12_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-12_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-13_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-13_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-8_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-8_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-9_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-9_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-1_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-1_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-3_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-3_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-4_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-4_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-5_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-5_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-6_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-6_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7R_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7R_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-8_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-8_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-9R_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-9R_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-1_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-1_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2R_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2R_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3R_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3R_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-4_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-4_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-5_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-5_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-6_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-6_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-1_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-1_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-2_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-2_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-3_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-3_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-4_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-4_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-5_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-5_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-6_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-6_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-7_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-7_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-1_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-1_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-2_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-2_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-3_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-3_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-4R2_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-4R2_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-5_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-5_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6R_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6R_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R2_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R2_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R3_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R3_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-8_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-8_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-1R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-1R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-7R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-7R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-2_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-2_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-3_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-3_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-4_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-4_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-5R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-5R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R3_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R3_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-1_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-1_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R2_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R2_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R3_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R3_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-3_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-3_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4R_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4R_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R2_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R2_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-6_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-6_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7R_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7R_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-8_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-8_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R3_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R3_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-2_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-2_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-3_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-3_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-4_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-4_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-5_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-5_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-6_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-6_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R2_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R2_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R3_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R3_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R5_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R5_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-1_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-1_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R2_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R2_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R3_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R3_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R5_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R5_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-3_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-3_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-1_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-1_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-2_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-2_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-3R_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-3R_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R2_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R2_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R3_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R3_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R5_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R5_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R6_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R6_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R7_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R7_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R2_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R2_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R3_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R3_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R4_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R4_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R5_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R5_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R2_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R2_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R5_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R5_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R5_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R5_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R5_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R5_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-1_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-1_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-2_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-2_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-3_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-3_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4R3_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4R3_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-6_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-6_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-1_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-1_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-2_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-2_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-3(bareSi)_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-3(bareSi)_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4R2_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4R2_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-5_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-5_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R2_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R2_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R3_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R3_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R4_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R4_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-5_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-5_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-6_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-6_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r2_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r2_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r3_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r3_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8R2_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8R2_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-9_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-9_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-8_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-8_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R4_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R4_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R5_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R5_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R67_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R67_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R6_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R6_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7R4_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7R4_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.25V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-2_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-2.25V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-2_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-2.25
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.35V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-9_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-2.35V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-9_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-2.35
+Loaded 185 individual GPRs
+Found 7 groups: ['potential=-1.75', 'potential=-1.85', 'potential=-1.95', 'potential=-2.05', 'potential=-2.15', 'potential=-2.25', 'potential=-2.35']
+
+Processing group 'potential=-1.75' (4 curves)
+  Student-t: using normalised-scale data (4 curves, nu=5.0)
+[Student-t] Starting: 4 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.209248  (weighted diag-NLL = -124.456)
+[Student-t] search bounds = (0, 5.45046)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 2561.45)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=2482 < NLL(1.0)=2561 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=1.323588e-01, d_min=26.54, d_max=861.3, sigma_btw^2=0.209248, nu=1.0000
+[Student-t] iter 10: max_dw=1.473445e-05, d_min=58.24, d_max=1568, sigma_btw^2=0.132893, nu=1.0000
+[Student-t] iter 13: max_dw=9.749446e-07, d_min=58.25, d_max=1568, sigma_btw^2=0.132886, nu=1.0000
+[Student-t] Converged in 13 iterations (3.53s)
+[Student-t] Final sigma_btw^2 = 0.132886  (initial = 0.209248)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 4 curves on 500-point grid
+[Student-t] s_agg = -0.00951173
+[Student-t] weight stats: min=0.108608, median=0.244532, max=0.402328
+[Student-t] energy stats: min=58.25, median=559.3, max=1568
+[Student-t] mean(diag(C_agg))=0.0306824, mean(diag(C_pred))=0.163568
+[Student-t] total elapsed: 4.38s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.75.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-1.75.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.75.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-1.75.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-1.75.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-1.75.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-1.75.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-1.75.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.75.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-1.75.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-1.75.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-1.75.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.75.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.75.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.75_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-1.75.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.75.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-1.75.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-1.75.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-1.75.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-1.75.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.75.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-1.75.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-1.75.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-1.75.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.75.png
+
+Processing group 'potential=-1.85' (4 curves)
+  Student-t: using normalised-scale data (4 curves, nu=5.0)
+[Student-t] Starting: 4 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.162894  (weighted diag-NLL = -196.156)
+[Student-t] search bounds = (0, 0.958577)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 2559.5)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=2492 < NLL(1.0)=2559 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=1.263189e-01, d_min=40.11, d_max=1045, sigma_btw^2=0.162894, nu=1.0000
+[Student-t] iter 10: max_dw=1.833320e-04, d_min=120, d_max=3194, sigma_btw^2=0.0738387, nu=1.0000
+[Student-t] iter 18: max_dw=5.599375e-07, d_min=120.3, d_max=3198, sigma_btw^2=0.0737983, nu=1.0000
+[Student-t] Converged in 18 iterations (3.59s)
+[Student-t] Final sigma_btw^2 = 0.0737983  (initial = 0.162894)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 4 curves on 500-point grid
+[Student-t] s_agg = -0.00976435
+[Student-t] weight stats: min=0.06174, median=0.285128, max=0.368004
+[Student-t] energy stats: min=120.3, median=317, max=3198
+[Student-t] mean(diag(C_agg))=0.0173225, mean(diag(C_pred))=0.0911208
+[Student-t] total elapsed: 3.81s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.85.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-1.85.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.85.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-1.85.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-1.85.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-1.85.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-1.85.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-1.85.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.85.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-1.85.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-1.85.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-1.85.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.85.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.85.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.85_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-1.85.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.85.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-1.85.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-1.85.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-1.85.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-1.85.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.85.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-1.85.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-1.85.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-1.85.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.85.png
+
+Processing group 'potential=-1.95' (154 curves)
+  Student-t: using normalised-scale data (154 curves, nu=5.0)
+[Student-t] Starting: 154 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 8772.84  (weighted diag-NLL = 2897.02)
+[Student-t] search bounds = (0, 2.71343e+07)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 61368)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=5.096e+04 < NLL(1.0)=6.137e+04 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=6.453346e-03, d_min=2.052, d_max=8.218e+04, sigma_btw^2=8772.84, nu=1.0000
+[Student-t] iter 10: max_dw=1.168493e-06, d_min=42.63, d_max=1.834e+05, sigma_btw^2=0.0619926, nu=1.0000
+[Student-t] iter 11: max_dw=4.881589e-07, d_min=42.64, d_max=1.834e+05, sigma_btw^2=0.0619907, nu=1.0000
+[Student-t] Converged in 11 iterations (83.98s)./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:340: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:394: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+
+[Student-t] Final sigma_btw^2 = 0.0619907  (initial = 8772.84)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 154 curves on 500-point grid
+[Student-t] s_agg = -0.0128039
+[Student-t] weight stats: min=3.24467e-05, median=0.00660193, max=0.010994
+[Student-t] energy stats: min=42.64, median=403.7, max=1.834e+05
+[Student-t] mean(diag(C_agg))=0.000381553, mean(diag(C_pred))=0.0623722
+[Student-t] total elapsed: 97.47s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.95.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-1.95.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.95.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-1.95.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-1.95.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-1.95.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-1.95.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-1.95.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.95.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-1.95.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-1.95.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-1.95.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.95.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.95.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.95_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-1.95.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.95.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-1.95.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-1.95.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-1.95.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-1.95.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.95.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-1.95.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-1.95.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-1.95.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.95.png
+
+Processing group 'potential=-2.05' (9 curves)
+  Student-t: using normalised-scale data (9 curves, nu=5.0)
+[Student-t] Starting: 9 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.10147  (weighted diag-NLL = -263.899)
+[Student-t] search bounds = (0, 2.34962)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 5390.82)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=5151 < NLL(1.0)=5391 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=7.048765e-02, d_min=34.21, d_max=1510, sigma_btw^2=0.10147, nu=1.0000
+[Student-t] iter 10: max_dw=7.454705e-06, d_min=81.57, d_max=3955, sigma_btw^2=0.0379565, nu=1.0000
+[Student-t] iter 13: max_dw=6.091404e-07, d_min=81.6, d_max=3955, sigma_btw^2=0.0379524, nu=1.0000
+[Student-t] Converged in 13 iterations (3.15s)
+[Student-t] Final sigma_btw^2 = 0.0379524  (initial = 0.10147)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 9 curves on 500-point grid
+[Student-t] s_agg = -0.0146605
+[Student-t] weight stats: min=0.0221411, median=0.142003, max=0.169595
+[Student-t] energy stats: min=81.6, median=194.6, max=3955
+[Student-t] mean(diag(C_agg))=0.00424666, mean(diag(C_pred))=0.0421991
+[Student-t] total elapsed: 4.37s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.05.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.05.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.05.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-2.05.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-2.05.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-2.05.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-2.05.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-2.05.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.05.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-2.05.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-2.05.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-2.05.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.05.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.05.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.05_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-2.05.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.05.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-2.05.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-2.05.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-2.05.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-2.05.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.05.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-2.05.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-2.05.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-2.05.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.05.png
+
+Processing group 'potential=-2.15' (12 curves)
+  Student-t: using normalised-scale data (12 curves, nu=5.0)
+[Student-t] Starting: 12 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.0809808  (weighted diag-NLL = -335.436)
+[Student-t] search bounds = (0, 1.9425)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 7220.68)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=6976 < NLL(1.0)=7221 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=5.530783e-02, d_min=26.52, d_max=1744, sigma_btw^2=0.0809808, nu=1.0000
+[Student-t] iter 10: max_dw=9.601643e-06, d_min=23.6, d_max=3005, sigma_btw^2=0.0509962, nu=1.0000
+[Student-t] iter 13: max_dw=8.398560e-07, d_min=23.6, d_max=3006, sigma_btw^2=0.0509966, nu=1.0000
+[Student-t] Converged in 13 iterations (3.71s)
+[Student-t] Final sigma_btw^2 = 0.0509966  (initial = 0.0809808)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 12 curves on 500-point grid
+[Student-t] s_agg = -0.0174979
+[Student-t] weight stats: min=0.020089, median=0.0777652, max=0.134502
+[Student-t] energy stats: min=23.6, median=406, max=3006
+[Student-t] mean(diag(C_agg))=0.00387268, mean(diag(C_pred))=0.0548693
+[Student-t] total elapsed: 4.63s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.15.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.15.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.15.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-2.15.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-2.15.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-2.15.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-2.15.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-2.15.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.15.csv./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:340: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:394: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-2.15.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-2.15.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-2.15.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.15.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.15.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.15_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-2.15.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.15.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-2.15.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-2.15.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-2.15.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-2.15.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.15.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-2.15.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-2.15.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-2.15.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.15.png
+
+Processing group 'potential=-2.25' (1 curves)
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.25.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.25.csv
+  Saved curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Curve_History_potential_-2.25.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.25.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.25_variance_compare.png
+
+Processing group 'potential=-2.35' (1 curves)
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.35.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.35.csv
+  Saved curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Curve_History_potential_-2.35.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.35.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.35_variance_compare.png
+
+Summary GPR complete: 7 groups processed
+  + Processed 7 groups
+
+[Step 3] Copying artifacts...
+
+[Step 4] Saving settings for reproducibility...
+  + Settings saved to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_norm__AM_student_t\settings_used.json
+
+-> Finished NS_norm__AM_student_t
+
+============================================================
+Processing: NS_real__AM_student_t
+============================================================
+
+[Step 1] Running Summary GPR...
+Loading individual GPRs from: ./_output\CCNF_CTAB_PT_output\individual_GPR
+Found 185 files matching pattern 'Individual_GPR_*.csv'
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-6R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-7_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-7_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-11_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.75V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-11_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.75
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-7_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-7_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-3_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-3_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-5R_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.85V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-5R_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.85
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-1_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-1_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2R_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2R_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-2_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-3R_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-3R_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-4_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-4_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-5_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-5_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-6_CTAB_diaphram_20230503.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-6_CTAB_diaphram_20230503.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-1_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-1_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2R2_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2R2_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-2_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-3_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-3_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-4_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-4_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-5_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-5_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-6_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-6_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-7_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU)_Ru-7_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-10_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-10_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-11_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-11_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-12_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-12_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-13_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-13_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-8_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-8_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-9_CTAB_diaphram_20230422.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BU-2)_Ru-9_CTAB_diaphram_20230422.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-1_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-1_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-3_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-3_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-4_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-4_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-5_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-5_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-6_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-6_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7R_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7R_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-7_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-8_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-8_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-9R_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-9R_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-1_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-1_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2R_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2R_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-2_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3R_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3R_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-3_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-4_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-4_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-5_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-5_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-6_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-6_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-1_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-1_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-2_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-2_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-3_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-3_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-4_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-4_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-5_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-5_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-6_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-6_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-7_CTAB_diaphram_20230501.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BV)_Ru-7_CTAB_diaphram_20230501.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-1_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-1_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-2_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-2_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-3_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-3_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-4R2_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-4R2_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-5_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-5_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6R_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6R_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-6_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R2_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R2_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R3_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R3_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7R_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-7_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-8_CTAB_diaphram_20230504.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR2)_Ru-8_CTAB_diaphram_20230504.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-1R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-1R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-7R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-7R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-1_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-2_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-2_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-3_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-3_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-4_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-4_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-5R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-5R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R3_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R3_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-6_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7R_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7R_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7_CTAB_diaphram_20230507.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR4)_Ru-7_CTAB_diaphram_20230507.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-1_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-1_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R2_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R2_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R3_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R3_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2R_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-2_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-3_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-3_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4R_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4R_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-4_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R2_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R2_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5R_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-5_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-6_CTAB_diaphram_20230509.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-6_CTAB_diaphram_20230509.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7R_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7R_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-7_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-8_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-8_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R3_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R3_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1R_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-1_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-2_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-2_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-3_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-3_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-4_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-4_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-5_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-5_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-6_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-6_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R2_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R2_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R3_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R3_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R5_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R5_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R_CTAB_diaphram_20230512.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR6)_Ru-7R_CTAB_diaphram_20230512.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-1_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-1_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R2_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R2_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R3_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R3_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R5_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-2R5_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-3_CTAB_diaphram_20230611.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR2)_Ru-3_CTAB_diaphram_20230611.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-1_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-1_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-2_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-2_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-3R_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-3R_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R2_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R2_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4R_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R3_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R3_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R5_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R5_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R6_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R6_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R7_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R7_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5R_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-5_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R2_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R2_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R3_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R3_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R4_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R4_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R5_CTAB_diaphram_20230612.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6R5_CTAB_diaphram_20230612.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R2_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R2_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R5_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R5_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-1_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R5_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R5_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R5_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R5_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-8R_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-1_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-1_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-2_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-2_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-3_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-3_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4R3_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4R3_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-4_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-6_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-6_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-1_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-1_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-2_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-2_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-3(bareSi)_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-3(bareSi)_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4R2_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4R2_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-4_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-5_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-5_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R2_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R2_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R3_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R3_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6R_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-6_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R4_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R4_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7R_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7_CTAB_diaphram_20230614.cor_curve_43.csv
+Loaded Individual_GPR_-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Ru-7_CTAB_diaphram_20230614.cor_curve_43.csv: 500 points, group=potential=-1.95
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-5_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-5_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-6_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-6_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r2_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r2_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r3_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r3_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10r_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-10_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8R2_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8R2_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-8_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-9_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.05V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-9_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.05
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-8_CTAB_diaphram_20230430.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR2)_Ru-8_CTAB_diaphram_20230430.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R2_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R2_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R4_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R4_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R5_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R5_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R67_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R67_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R6_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R6_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4R_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4_CTAB_diaphram_20230506.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR3)_Ru-4_CTAB_diaphram_20230506.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R3_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R3_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R4_CTAB_diaphram_20230613.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-5R4_CTAB_diaphram_20230613.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7R4_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7R4_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7_CTAB_diaphram_20230616.cor_curve_43.csv
+Loaded Individual_GPR_-2.15V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR6)_Au-7_CTAB_diaphram_20230616.cor_curve_43.csv: 500 points, group=potential=-2.15
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.25V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-2_CTAB_diaphram_20230424.cor_curve_43.csv
+Loaded Individual_GPR_-2.25V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BUR1)_Ru-2_CTAB_diaphram_20230424.cor_curve_43.csv: 500 points, group=potential=-2.25
+    Loaded covariance: (500, 500) from Covariance_Matrix_-2.35V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-9_CTAB_diaphram_20230510.cor_curve_43.csv
+Loaded Individual_GPR_-2.35V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR5)_Ru-9_CTAB_diaphram_20230510.cor_curve_43.csv: 500 points, group=potential=-2.35
+Loaded 185 individual GPRs
+Found 7 groups: ['potential=-1.75', 'potential=-1.85', 'potential=-1.95', 'potential=-2.05', 'potential=-2.15', 'potential=-2.25', 'potential=-2.35']
+
+Processing group 'potential=-1.75' (4 curves)
+  Student-t: using normalised-scale data (4 curves, nu=5.0)
+[Student-t] Starting: 4 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.209248  (weighted diag-NLL = -124.456)
+[Student-t] search bounds = (0, 5.45046)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 2561.45)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=2482 < NLL(1.0)=2561 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=1.323588e-01, d_min=26.54, d_max=861.3, sigma_btw^2=0.209248, nu=1.0000
+[Student-t] iter 10: max_dw=1.473445e-05, d_min=58.24, d_max=1568, sigma_btw^2=0.132893, nu=1.0000
+[Student-t] iter 13: max_dw=9.749446e-07, d_min=58.25, d_max=1568, sigma_btw^2=0.132886, nu=1.0000
+[Student-t] Converged in 13 iterations (3.87s)
+[Student-t] Final sigma_btw^2 = 0.132886  (initial = 0.209248)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 4 curves on 500-point grid
+[Student-t] s_agg = -0.00951173
+[Student-t] weight stats: min=0.108608, median=0.244532, max=0.402328
+[Student-t] energy stats: min=58.25, median=559.3, max=1568
+[Student-t] mean(diag(C_agg))=0.0306824, mean(diag(C_pred))=0.163568
+[Student-t] total elapsed: 5.29s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.75.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-1.75.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.75.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-1.75.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-1.75.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-1.75.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-1.75.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-1.75.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.75.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-1.75.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-1.75.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-1.75.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.75.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.75.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.75_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-1.75.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.75.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-1.75.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-1.75.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-1.75.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-1.75.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.75.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-1.75.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-1.75.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-1.75.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.75.png
+
+Processing group 'potential=-1.85' (4 curves)
+  Student-t: using normalised-scale data (4 curves, nu=5.0)
+[Student-t] Starting: 4 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.162894  (weighted diag-NLL = -196.156)
+[Student-t] search bounds = (0, 0.958577)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 2559.5)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=2492 < NLL(1.0)=2559 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=1.263189e-01, d_min=40.11, d_max=1045, sigma_btw^2=0.162894, nu=1.0000
+[Student-t] iter 10: max_dw=1.833320e-04, d_min=120, d_max=3194, sigma_btw^2=0.0738387, nu=1.0000
+[Student-t] iter 18: max_dw=5.599375e-07, d_min=120.3, d_max=3198, sigma_btw^2=0.0737983, nu=1.0000
+[Student-t] Converged in 18 iterations (2.06s)
+[Student-t] Final sigma_btw^2 = 0.0737983  (initial = 0.162894)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 4 curves on 500-point grid
+[Student-t] s_agg = -0.00976435
+[Student-t] weight stats: min=0.06174, median=0.285128, max=0.368004
+[Student-t] energy stats: min=120.3, median=317, max=3198
+[Student-t] mean(diag(C_agg))=0.0173225, mean(diag(C_pred))=0.0911208
+[Student-t] total elapsed: 3.54s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.85.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-1.85.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.85.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-1.85.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-1.85.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-1.85.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-1.85.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-1.85.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.85.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-1.85.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-1.85.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-1.85.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.85.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.85.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.85_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-1.85.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.85.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-1.85.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-1.85.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-1.85.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-1.85.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.85.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-1.85.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-1.85.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-1.85.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.85.png
+
+Processing group 'potential=-1.95' (154 curves)
+  Student-t: using normalised-scale data (154 curves, nu=5.0)
+[Student-t] Starting: 154 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 8772.84  (weighted diag-NLL = 2897.02)
+[Student-t] search bounds = (0, 2.71343e+07)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 61368)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=5.096e+04 < NLL(1.0)=6.137e+04 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=6.453346e-03, d_min=2.052, d_max=8.218e+04, sigma_btw^2=8772.84, nu=1.0000
+[Student-t] iter 10: max_dw=1.168493e-06, d_min=42.63, d_max=1.834e+05, sigma_btw^2=0.0619926, nu=1.0000
+[Student-t] iter 11: max_dw=4.881589e-07, d_min=42.64, d_max=1.834e+05, sigma_btw^2=0.0619907, nu=1.0000
+[Student-t] Converged in 11 iterations (45.85s)
+[Student-t] Final sigma_btw^2 = 0.0619907  (initial = 8772.84)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 154 curves on 500-point grid
+[Student-t] s_agg = -0.0128039
+[Student-t] weight stats: min=3.24467e-05, median=0.00660193, max=0.010994
+[Student-t] energy stats: min=42.64, median=403.7, max=1.834e+05
+[Student-t] mean(diag(C_agg))=0.000381553, mean(diag(C_pred))=0.0623722
+[Student-t] total elapsed: 48.16s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.95.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-1.95.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.95.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-1.95.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-1.95.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-1.95.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-1.95.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-1.95.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.95.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-1.95.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-1.95.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-1.95.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.95.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.95.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-1.95_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-1.95.png./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:340: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:394: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-1.95.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-1.95.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-1.95.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-1.95.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-1.95.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-1.95.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-1.95.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-1.95.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-1.95.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-1.95.png
+
+Processing group 'potential=-2.05' (9 curves)
+  Student-t: using normalised-scale data (9 curves, nu=5.0)
+[Student-t] Starting: 9 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.10147  (weighted diag-NLL = -263.899)
+[Student-t] search bounds = (0, 2.34962)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 5390.82)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=5151 < NLL(1.0)=5391 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=7.048765e-02, d_min=34.21, d_max=1510, sigma_btw^2=0.10147, nu=1.0000
+[Student-t] iter 10: max_dw=7.454705e-06, d_min=81.57, d_max=3955, sigma_btw^2=0.0379565, nu=1.0000
+[Student-t] iter 13: max_dw=6.091404e-07, d_min=81.6, d_max=3955, sigma_btw^2=0.0379524, nu=1.0000
+[Student-t] Converged in 13 iterations (1.44s)
+[Student-t] Final sigma_btw^2 = 0.0379524  (initial = 0.10147)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 9 curves on 500-point grid
+[Student-t] s_agg = -0.0146605
+[Student-t] weight stats: min=0.0221411, median=0.142003, max=0.169595
+[Student-t] energy stats: min=81.6, median=194.6, max=3955
+[Student-t] mean(diag(C_agg))=0.00424666, mean(diag(C_pred))=0.0421991
+[Student-t] total elapsed: 1.85s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.05.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.05.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.05.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-2.05.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-2.05.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-2.05.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-2.05.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-2.05.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.05.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-2.05.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-2.05.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-2.05.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.05.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.05.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.05_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-2.05.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.05.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-2.05.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-2.05.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-2.05.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-2.05.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.05.png./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:340: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+./py_FDA_GPR_modules\pip3_FDA_scoring_and_aggregations\student_t_agg_iterative\student_t_plot_helpers.py:394: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-2.05.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-2.05.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-2.05.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.05.png
+
+Processing group 'potential=-2.15' (12 curves)
+  Student-t: using normalised-scale data (12 curves, nu=5.0)
+[Student-t] Starting: 12 curves, 500 grid points, nu=5.0 (optimise)
+[Student-t] sigma_btw^2 = 0.0809808  (weighted diag-NLL = -335.436)
+[Student-t] search bounds = (0, 1.9425)
+[Student-t] Initial mean computed (unweighted precision avg)
+[Student-t] nu optimised: 1.0000  (neg-loglik = 7220.68)
+[Student-t]   ** HIT LOWER BOUND (nu=1.0); NLL(0.5)=6976 < NLL(1.0)=7221 => true optimum lies below 1.0
+[Student-t] iter 1: max_dw=5.530783e-02, d_min=26.52, d_max=1744, sigma_btw^2=0.0809808, nu=1.0000
+[Student-t] iter 10: max_dw=9.601643e-06, d_min=23.6, d_max=3005, sigma_btw^2=0.0509962, nu=1.0000
+[Student-t] iter 13: max_dw=8.398560e-07, d_min=23.6, d_max=3006, sigma_btw^2=0.0509966, nu=1.0000
+[Student-t] Converged in 13 iterations (1.55s)
+[Student-t] Final sigma_btw^2 = 0.0509966  (initial = 0.0809808)
+[Student-t] Final nu = 1.0000  (initial = 5.0000)
+[Student-t] Aggregated 12 curves on 500-point grid
+[Student-t] s_agg = -0.0174979
+[Student-t] weight stats: min=0.020089, median=0.0777652, max=0.134502
+[Student-t] energy stats: min=23.6, median=406, max=3006
+[Student-t] mean(diag(C_agg))=0.00387268, mean(diag(C_pred))=0.0548693
+[Student-t] total elapsed: 1.68s
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.15.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.15.csv
+  Saved iterative sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.15.csv
+  Saved Student-t weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weights_potential_-2.15.csv
+  Saved Student-t diagnostics to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Diagnostics_potential_-2.15.txt
+  Saved Student-t curve CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_potential_-2.15.csv
+  Saved Student-t C_agg covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Agg_potential_-2.15.csv
+  Saved Student-t C_pred covariance to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_Pred_potential_-2.15.csv
+  Saved Student-t sigma calibration CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.15.csv
+  Saved Student-t weight history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_History_potential_-2.15.csv
+  Saved Student-t energy history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_History_potential_-2.15.csv
+  Saved Student-t curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_History_potential_-2.15.csv
+  Saved Student-t hyperparameter history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.15.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.15.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.15_variance_compare.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Weight_Distribution_potential_-2.15.png
+  Saved iterative sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Sigma_Calibration_potential_-2.15.png
+  Saved Student-t curve plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Summary_potential_-2.15.png
+Saved weight distribution plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Distribution_potential_-2.15.png
+  Saved Student-t covariance heatmap to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Covariance_potential_-2.15.png
+  Saved Student-t diagonal std profile to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_DiagStd_potential_-2.15.png
+  Saved Student-t sigma calibration to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Sigma_Calibration_potential_-2.15.png
+  Saved Student-t weight convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Weight_Convergence_potential_-2.15.png
+  Saved Student-t curve iterations plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Curve_Iterations_potential_-2.15.png
+  Saved Student-t energy convergence plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Energy_Convergence_potential_-2.15.png
+  Saved Student-t hyperparameter history plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\student_t\StudentT_Hyperparameter_History_potential_-2.15.png
+
+Processing group 'potential=-2.25' (1 curves)
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.25.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.25.csv
+  Saved curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Curve_History_potential_-2.25.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.25.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.25_variance_compare.png
+
+Processing group 'potential=-2.35' (1 curves)
+  Saved iterative summary CSV to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.35.csv
+  Saved weights to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Converged_Weights_potential_-2.35.csv
+  Saved curve history to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Curve_History_potential_-2.35.csv
+Saved summary GPR plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.35.png
+Saved variance comparison plot to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\summary_gpr\iterative\Summary_GPR_potential_-2.35_variance_compare.png
+
+Summary GPR complete: 7 groups processed
+  + Processed 7 groups
+
+[Step 3] Copying artifacts...
+
+[Step 4] Saving settings for reproducibility...
+  + Settings saved to ./_output\CCNF_CTAB_PT_output\batch_testing\NS_real__AM_student_t\settings_used.json
+
+-> Finished NS_real__AM_student_t
+
+============================================================
+[Post-Processing] Exporting Aggregate CSVs...
+============================================================
+
+============================================================
+Exporting Aggregate CSVs
+============================================================
+Exported: Aggregate_SummaryGPR_potential_-1.75.csv (2 permutations)
+Exported: Aggregate_SummaryGPR_potential_-1.85.csv (2 permutations)
+Exported: Aggregate_SummaryGPR_potential_-1.95.csv (2 permutations)
+Exported: Aggregate_SummaryGPR_potential_-2.05.csv (2 permutations)
+Exported: Aggregate_SummaryGPR_potential_-2.15.csv (2 permutations)
+Exported: Aggregate_SummaryGPR_potential_-2.25.csv (2 permutations)
+Exported: Aggregate_SummaryGPR_potential_-2.35.csv (2 permutations)
+Exported: Aggregate_Efficiency_potential_-1.75.csv (1 permutations)
+Exported: Aggregate_Efficiency_potential_-1.85.csv (1 permutations)
+
+Exported 7 Summary GPR CSVs, 2 Efficiency CSVs
+
+============================================================
+[Post-Processing] Generating Comparison Plots...
+============================================================
+Found 2 permutations:
+  - NS_norm__AM_student_t
+  - NS_real__AM_student_t
+Found 7 group_keys: ['potential_-1.75', 'potential_-1.85', 'potential_-1.95', 'potential_-2.05', 'potential_-2.15', 'potential_-2.25', 'potential_-2.35']
+
+Processing group_key potential_-1.75...
+Saved combined comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\Combined_Comparison_potential_-1.75.png
+Saved Summary GPR comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\SummaryGPR_Comparison_potential_-1.75.png
+
+Processing group_key potential_-1.85...
+Saved combined comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\Combined_Comparison_potential_-1.85.png
+Saved Summary GPR comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\SummaryGPR_Comparison_potential_-1.85.png
+
+Processing group_key potential_-1.95...
+No Efficiency data found for group_key potential_-1.95
+Saved Summary GPR comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\SummaryGPR_Comparison_potential_-1.95.png
+
+Processing group_key potential_-2.05...
+No Efficiency data found for group_key potential_-2.05
+Saved Summary GPR comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\SummaryGPR_Comparison_potential_-2.05.png
+
+Processing group_key potential_-2.15...
+No Efficiency data found for group_key potential_-2.15
+Saved Summary GPR comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\SummaryGPR_Comparison_potential_-2.15.png
+
+Processing group_key potential_-2.25...
+No Efficiency data found for group_key potential_-2.25
+Saved Summary GPR comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\SummaryGPR_Comparison_potential_-2.25.png
+
+Processing group_key potential_-2.35...
+No Efficiency data found for group_key potential_-2.35
+Saved Summary GPR comparison plot: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons\SummaryGPR_Comparison_potential_-2.35.png
+
+============================================================
+Generated 9 comparison plots:
+  - combined: 2 plots
+  - summary: 7 plots
+  - efficiency: 0 plots
+Output directory: ./_output\CCNF_CTAB_PT_output\batch_testing\comparisons
+
+============================================================
+Batch testing complete: 4 combinations processed
+============================================================
+
+============================================================
+Batch Testing Results Summary
+============================================================
+
+NS_norm__AM_student_t:
+  Summary GPR: 7 groups processed
+
+NS_real__AM_student_t:
+  Summary GPR: 7 groups processed
+
+Aggregate CSVs: 7 Summary GPR, 2 Efficiency
+Comparison Plots (combined): 2 plots
+Comparison Plots (summary): 7 plots
+Comparison Plots (efficiency): 0 plots
+
+Settings saved to: ./_output\CCNF_CTAB_PT_output\batch_testing\settings_used.json
+Output directory: ./_output\CCNF_CTAB_PT_output\batch_testing
+
+======================================================================
+Batch Pipeline completed successfully!
+Output: ./_output\CCNF_CTAB_PT_output
+======================================================================

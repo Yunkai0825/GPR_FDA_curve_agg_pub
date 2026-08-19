@@ -1,0 +1,3 @@
+between_variance_norm: 0.011144135380123373
+within_variance_norm: 5.949856963210677e-08
+within_variance_real: 1.5174465329747166e-11

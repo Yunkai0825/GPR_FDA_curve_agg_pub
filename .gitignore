@@ -1,0 +1,22 @@
+# Bytecode files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Ignore compiled extensions
+*.so
+
+# Development and archival directories not tracked
+py_curve_adv_operation_modules/
+_tmp_scripts/
+_tmp_subset/
+_obsolete/
+_ref/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS artifacts
+Thumbs.db
+.DS_Store

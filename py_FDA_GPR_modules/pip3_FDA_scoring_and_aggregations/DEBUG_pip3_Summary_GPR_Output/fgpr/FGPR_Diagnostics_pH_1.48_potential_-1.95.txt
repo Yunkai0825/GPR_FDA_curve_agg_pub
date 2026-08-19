@@ -1,0 +1,20 @@
+sigma_btw_squared: 1661.7982643738799
+nll_optimized: 20913.640012326337
+within_variance_norm: 209.3482697937571
+within_variance_real: 0.04910126338292247
+predictive_variance_norm (C_agg + sigma_btw^2): 1871.1465341676376
+predictive_variance_real (C_agg + sigma_btw^2): 0.4388651451130717
+n_models: 8
+weights: [0.07915152064878374, 0.13164271023775395, 0.13165164866351167, 0.13164465669351952, 0.13164283682717323, 0.13096391001856486, 0.1316516981646543, 0.13165101874603874]
+
+--- Structured C_btw parameters ---
+sigma2_w  (white):  1661.7982643738803
+sigma2_s  (smooth): 0.0
+ell_b     (length): 0.0
+sigma2_o  (offset): 0.0
+sigma2_d  (drift):  0.0
+sigma2_sc (scale):  0.0
+n_outer_iter: 1
+converged: True
+weight_converged: True
+max_weight_delta: 4.58e-02

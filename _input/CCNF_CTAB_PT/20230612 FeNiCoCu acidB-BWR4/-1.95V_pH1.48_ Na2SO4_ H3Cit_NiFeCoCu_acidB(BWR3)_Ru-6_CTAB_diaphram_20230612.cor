@@ -1,0 +1,142 @@
+CORRW ASCII
+  CorrWare for Windows: Version 3.1c
+  Potentiostatic	[-1.95 Ref,5000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6_CTAB_diaphram_20230612.cor (append)
+  Date: 10-01-2003    Time: 08:04:35
+   
+   
+  Open Circuit Potential (V): 0.465
+  Begin Information:          Cell Information
+    Surface Area:             1
+    Density:                  0
+    Weight:                   0
+    Polarity:                 0
+    PolarityI:                0
+    Corrosion Unit Type:      0
+    Reference Type:           0
+    Reference Potential:      0
+    User-Defined Potential:   0
+    Stern-Geary:              26
+  End Information:            Cell Information
+  Begin Pstat:                263
+    Pstat Title:              Instrument #1
+    Current Range:            0
+    Current Range Min.:       0
+    Current Gain:             0
+    Potential Range:          0
+    Auxilary Type:            0
+    iR Comp. Type:            0
+    iR Ohms:                  0
+    iR Time:                  1
+    iR Percent:               100
+    LP Filter Type:           0
+    IE Filter Type:           0
+    Bandwidth Type:           0
+    Point Avg:                100
+    Scan Interpolation:       0
+    Oversample Rate:          1000
+    External Input:           0
+    Trigger Wait1:            0
+    Trigger Wait2:            0
+    Trigger Wait Type:        1
+    Trigger Out:              0
+    Trigger Out Type:         1
+  End Pstat:                  263
+  Begin Experiment:           Potentiostatic	[-1.95 Ref,5000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6_CTAB_diaphram_20230612.cor (append)
+    Data File:                C:\Documents and Settings\CESE\Desktop\Users\Yunkai\20230612 FeNiCoCu acidB-BWR3\-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6_CTAB_diaphram_20230612.cor
+    Data Append:              1
+    Comment Lines:            0
+    Potential:                -1.95
+    Potential Type:           1
+    Total Time:               5000
+    Time Units:               0
+    Measure Rate Type:        1
+    Measure Rate #1:          2000
+    Measure Rate #2:          11
+    Measure Rate #3:          0.1
+    Measure Rate #4:          2
+    Use Threshold:            0
+    Threshold I_Min:          -0.21
+    Threshold I_Max:          15
+    Threshold Delta:          5
+    Threshold Time:           60
+    Copy AuxV:                0
+    Axes Type:                1
+    Use Custom Pstat:         0
+  End Experiment:             Potentiostatic	[-1.95 Ref,5000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-6_CTAB_diaphram_20230612.cor (append)
+  Data Points:                74
+  E(Volts)	I(A/cm2)	T(Seconds)
+End Comments
+-1.355000E+00	-1.640000E-02	0.000000E+00
+-1.944000E+00	-2.040000E-02	9.090909E-02
+-1.940000E+00	-1.990000E-02	1.818182E-01
+-1.940000E+00	-1.920000E-02	2.727273E-01
+-1.940000E+00	-1.840000E-02	3.636364E-01
+-1.940000E+00	-1.820000E-02	4.545455E-01
+-1.940000E+00	-1.770000E-02	5.454545E-01
+-1.940000E+00	-1.730000E-02	6.363636E-01
+-1.940000E+00	-1.690000E-02	7.272727E-01
+-1.940000E+00	-1.620000E-02	8.181818E-01
+-1.940000E+00	-1.540000E-02	9.090909E-01
+-1.940000E+00	-1.490000E-02	1.000000E+00
+-1.940000E+00	-1.465000E-02	1.090909E+00
+-1.945000E+00	-1.437000E-02	1.181818E+00
+-1.945000E+00	-1.393000E-02	1.272727E+00
+-1.940000E+00	-1.333000E-02	1.363636E+00
+-1.940000E+00	-1.287000E-02	1.454545E+00
+-1.945000E+00	-1.269000E-02	1.545455E+00
+-1.945000E+00	-1.244000E-02	1.636364E+00
+-1.945000E+00	-1.214000E-02	1.727273E+00
+-1.940000E+00	-1.176000E-02	1.818182E+00
+-1.945000E+00	-1.148000E-02	1.909091E+00
+-1.945000E+00	-1.075000E-02	2.000000E+00
+-1.945000E+00	-1.050000E-02	2.090909E+00
+-1.945000E+00	-1.038000E-02	2.181818E+00
+-1.945000E+00	-1.045000E-02	2.272727E+00
+-1.945000E+00	-1.047000E-02	2.363636E+00
+-1.940000E+00	-1.029000E-02	2.454545E+00
+-1.945000E+00	-9.830000E-03	2.545455E+00
+-1.945000E+00	-9.300000E-03	2.636364E+00
+-1.945000E+00	-9.040000E-03	2.727273E+00
+-1.940000E+00	-8.750000E-03	2.818182E+00
+-1.945000E+00	-8.260000E-03	2.909091E+00
+-1.945000E+00	-8.150000E-03	3.000000E+00
+-1.945000E+00	-8.090000E-03	3.090909E+00
+-1.945000E+00	-8.070000E-03	3.181818E+00
+-1.945000E+00	-8.150000E-03	3.272727E+00
+-1.945000E+00	-8.270000E-03	3.363636E+00
+-1.945000E+00	-8.160000E-03	3.454545E+00
+-1.945000E+00	-7.680000E-03	3.545455E+00
+-1.945000E+00	-7.310000E-03	3.636364E+00
+-1.945000E+00	-7.480000E-03	3.727273E+00
+-1.945000E+00	-7.500000E-03	3.818182E+00
+-1.940000E+00	-6.990000E-03	3.909091E+00
+-1.945000E+00	-6.700000E-03	4.000000E+00
+-1.945000E+00	-8.740000E-03	4.090909E+00
+-1.945000E+00	-8.090000E-03	4.181818E+00
+-1.945000E+00	-7.760000E-03	4.272727E+00
+-1.945000E+00	-7.350000E-03	4.363636E+00
+-1.945000E+00	-6.650000E-03	4.454545E+00
+-1.945000E+00	-7.180000E-03	4.545455E+00
+-1.945000E+00	-7.170000E-03	4.636364E+00
+-1.945000E+00	-6.650000E-03	4.727273E+00
+-1.945000E+00	-6.410000E-03	4.818182E+00
+-1.940000E+00	-6.320000E-03	4.909091E+00
+-1.945000E+00	-7.110000E-03	5.000000E+00
+-1.945000E+00	-6.750000E-03	5.090909E+00
+-1.945000E+00	-5.230000E-03	5.181818E+00
+-1.945000E+00	-7.450000E-03	5.272727E+00
+-1.945000E+00	-6.980000E-03	5.363636E+00
+-1.945000E+00	-6.620000E-03	5.454545E+00
+-1.945000E+00	-6.280000E-03	5.545455E+00
+-1.945000E+00	-6.290000E-03	5.636364E+00
+-1.945000E+00	-5.810000E-03	5.727273E+00
+-1.945000E+00	-6.140000E-03	5.818182E+00
+-1.945000E+00	-5.850000E-03	5.909091E+00
+-1.945000E+00	-6.200000E-03	6.000000E+00
+-1.945000E+00	-5.770000E-03	6.090909E+00
+-1.945000E+00	-6.630000E-03	6.181818E+00
+-1.945000E+00	-6.190000E-03	6.272727E+00
+-1.945000E+00	-5.610000E-03	6.363636E+00
+-1.945000E+00	-5.320000E-03	6.454545E+00
+-1.945000E+00	-5.730000E-03	6.545455E+00
+-1.945000E+00	-5.750000E-03	6.636364E+00

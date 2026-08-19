@@ -1,0 +1,266 @@
+{
+    "_meta": {
+        "version": "2.0",
+        "description": "DEBUG Settings - Reduced parameters for fast testing",
+        "author": "Yunkai Sun (C-STEEL, CSE, ANL)",
+        "note": "Use these settings for all DEBUG scripts in pip2/pip3/pip4/pip5. Parameters marked (DEBUG) are intentionally reduced for speed.",
+        "loaded_at": "2026-02-13T13:47:41.234052",
+        "input_folder": "./py_FDA_GPR_modules\\pip0_dataloading\\DEBUG_pip0_input",
+        "saved_at": "2026-02-13T13:48:34.125605",
+        "source_file": "./py_FDA_GPR_modules\\pip0_dataloading\\DEBUG_pip0_input\\DEBUG_settings.json"
+    },
+    "output_structure": {
+        "base_output_dir": "py_FDA_GPR_modules",
+        "pip2_individual_gpr": "pip2_individual_gpr/DEBUG_pip2_individual_GPR_Output",
+        "pip3_scoring_aggregations": "pip3_FDA_scoring_and_aggregations/DEBUG_pip3_Summary_GPR_Output",
+        "pip4_efficiency_eval": "pip4_efficiency_eval/DEBUG_pip4_Efficiency_Output",
+        "pip5_batch_testing": "pip5_batch_setting_grid_testing/DEBUG_pip5_Batch_Setting_Output"
+    },
+    "pip0_dataloading": {
+        "file_extension": ".cor",
+        "filename_parsing": {
+            "delimiter": "_",
+            "grouping_keys": [
+                {
+                    "name": "potential",
+                    "token_index": 0,
+                    "dtype": "float",
+                    "regex_extract": "^([+-]?\\d+\\.?\\d*)V$",
+                    "description": "Applied potential in Volts (e.g., -1.95V -> -1.95)"
+                },
+                {
+                    "name": "pH",
+                    "token_index": 1,
+                    "dtype": "float",
+                    "regex_extract": "^pH(\\d+\\.?\\d*)$",
+                    "description": "Solution pH value (e.g., pH1.48 -> 1.48)"
+                }
+            ],
+            "metadata_keys": [
+                {
+                    "name": "electrolyte",
+                    "token_index": 2,
+                    "dtype": "string",
+                    "description": "Electrolyte type (e.g., Na2SO4)"
+                },
+                {
+                    "name": "additive",
+                    "token_index": 3,
+                    "dtype": "string",
+                    "description": "Additive compound (e.g., H3Cit)"
+                },
+                {
+                    "name": "alloy",
+                    "token_index": 4,
+                    "dtype": "string",
+                    "description": "Alloy composition (e.g., NiFeCoCu)"
+                },
+                {
+                    "name": "sample_id",
+                    "token_index": 6,
+                    "dtype": "string",
+                    "description": "Sample identifier (e.g., Au-4R2)"
+                }
+            ]
+        },
+        "primary_grouping_key": "potential",
+        "fallback_to_file_content": false
+    },
+    "pip1_datapreprocessing": {
+        "column_names": {
+            "x_col": "T (Seconds)",
+            "y_col": "I (A/cm2)"
+        },
+        "filtering": {
+            "max_points_set": 500,
+            "min_x_cap": 0.0001,
+            "max_x_cap": 10000.0,
+            "min_curve_range": 60.0,
+            "y_threshold": 0.01
+        },
+        "x_scaling": {
+            "method": "log",
+            "_method_options": [
+                "log",
+                "identity"
+            ],
+            "params": {
+                "base": "log10",
+                "shift": 1e-09
+            }
+        },
+        "y_scaling": {
+            "method": "middle_average",
+            "_method_options": [
+                "peak",
+                "middle_average",
+                "identity"
+            ],
+            "params": {
+                "start_fraction": 0.5,
+                "end_fraction": 0.9
+            }
+        },
+        "grouping": {
+            "group_round_digits": 2
+        }
+    },
+    "pip2_individual_gpr": {
+        "gpr_params": {
+            "n_restarts_optimizer": 3,
+            "alpha": 1e-07,
+            "normalize_y": true,
+            "num_curves_threshold": 50,
+            "num_X_pred_points_individual_default": 200,
+            "num_X_pred_points_individual_high": 500,
+            "_n_restarts_note": "(DEBUG) Production default: 5",
+            "_pred_points_note": "(DEBUG) Production defaults: 500 / 1000"
+        },
+        "shared_grid": {
+            "enabled": true,
+            "method": "explicit",
+            "_method_options": [
+                "auto",
+                "explicit",
+                "per_group"
+            ],
+            "explicit_grid": "np.linspace(-1.1, 4.0, 500)",
+            "_explicit_grid_note": "Python expression evaluated with numpy (np) available. Upper bound = log10(max_x_cap); 4.0 = log10(1e4 s).",
+            "auto_num_points": 500,
+            "auto_padding_fraction": 0.0,
+            "refit_on_full_data": false,
+            "_refit_note": "If true, after hyperparameter tuning on train split, refit GPR on all data with frozen hyperparams before regulating to shared grid."
+        },
+        "posterior_covariance": {
+            "store_full_covariance": true,
+            "storage_mode": "full",
+            "_storage_mode_options": [
+                "full",
+                "diagonal",
+                "sparse",
+                "cholesky"
+            ],
+            "sparse_threshold": 1e-06
+        },
+        "kernel": {
+            "constant_bounds": [
+                1e-12,
+                1000.0
+            ],
+            "matern_length_scale": 1.0,
+            "matern_length_scale_bounds": [
+                0.01,
+                1000.0
+            ],
+            "matern_nu": 1.5,
+            "white_noise_level": 1.0,
+            "white_noise_bounds": [
+                1e-12,
+                1000.0
+            ]
+        },
+        "export": {
+            "plot_individual_gpr": true,
+            "individual_curve_alpha": 0.3,
+            "plot_downsample_points": 200,
+            "dpi": 100,
+            "max_points_to_save": 5000,
+            "_dpi_note": "(DEBUG) Production default: 300"
+        }
+    },
+    "pip3_summary_gpr": {
+        "file_pattern": "Individual_GPR_*.csv",
+        "aggregation": {
+            "weight_mode": "iterative",
+            "_weight_mode_options": [
+                "equal",
+                "iterative"
+            ],
+            "weight_scope": "curve",
+            "_weight_scope_options": [
+                "curve",
+                "point"
+            ],
+            "include_within_variance": true,
+            "include_between_variance": true,
+            "variance_aggregation_scale": "normalised",
+            "_variance_aggregation_scale_options": [
+                "real",
+                "normalised"
+            ],
+            "normalization_summary": true,
+            "enable_operator_fusion": false,
+            "_enable_operator_fusion_note": "Operator fusion is deprecated; kept only for legacy comparison. FGPR is the preferred covariance-aware method.",
+            "enable_fgpr": true,
+            "_enable_fgpr_note": "Enable FGPR aggregation (precision-weighted inverse-variance pooling with \u03c3_btw optimisation). Independent of operator fusion.",
+            "aggregation_method": "iterative",
+            "_aggregation_method_options": [
+                "iterative",
+                "fgpr"
+            ],
+            "_aggregation_method_note": "Default method for standalone pip3. Batch testing (pip5) overrides this per combination."
+        },
+        "plotting": {
+            "plot_individual_gprs": true,
+            "individual_curve_alpha": 0.2,
+            "min_time_cap": 0.01,
+            "max_time_cap": 10000.0
+        },
+        "hyperparams": {
+            "max_iterations": 50,
+            "convergence_tol": 1e-05,
+            "epsilon": 1e-12,
+            "confidence_level": 0.95,
+            "num_interp_points": 200,
+            "_num_interp_points_note": "(DEBUG) Production default: 500. Only used for iterative weight interpolation, not for shared-grid regulated output."
+        }
+    },
+    "pip4_efficiency_eval": {
+        "global": {
+            "metric": "rmse",
+            "_metric_options": [
+                "rmse",
+                "mae",
+                "max"
+            ],
+            "base_repeats": 10,
+            "max_enum": 10,
+            "q_low": 0.25,
+            "q_high": 0.75,
+            "random_seed": 42,
+            "_repeats_note": "(DEBUG) Production default: 1000 / 1000"
+        },
+        "scale": {
+            "use_log_error": true,
+            "log_base_error": "10",
+            "_log_base_options": [
+                "10",
+                "e"
+            ],
+            "eps_error": 1e-30,
+            "use_log_cost": true,
+            "log_base_cost": "10",
+            "eps_cost": 1e-30,
+            "normalize_w_rbar": true
+        },
+        "plot": {
+            "figsize": [
+                10,
+                4
+            ],
+            "dpi": 100,
+            "xlabel": "Number of curves",
+            "ylabel": "Error metric",
+            "time_label": "CPU time (s)",
+            "_dpi_note": "(DEBUG) Production default: 120"
+        }
+    },
+    "pip5_batch_testing": {
+        "include_fgpr": true,
+        "_include_fgpr_note": "When true, adds 2 FGPR combinations (normalised + real) to the 6 iterative combinations, giving 8 total.",
+        "run_summary_gpr": true,
+        "run_efficiency_eval": true,
+        "run_comparison_plots": true,
+        "_grid_note": "The testing grid = {normalization: [true, false]} x {(equal, curve), (iterative, curve), (iterative, point)} = 6 iterative combos. With include_fgpr=true, adds (norm, fgpr) + (real, fgpr) = 8 total."
+    }
+}

@@ -1,0 +1,8 @@
+sigma_btw_squared: 1.306075287598314e-05
+nll_optimized: -10229.484765509644
+within_variance_norm: 3.326110410182729e-06
+within_variance_real: 3.326110410182729e-06
+predictive_variance_norm (C_agg + sigma_btw^2): 1.6386863286165866e-05
+predictive_variance_real (C_agg + sigma_btw^2): 1.6386863286165866e-05
+n_models: 4
+weights: [0.24476024974552332, 0.25504185653819794, 0.26016635363295926, 0.24003154008331948]

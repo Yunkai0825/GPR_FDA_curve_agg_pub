@@ -1,0 +1,106 @@
+CORRW ASCII
+  CorrWare for Windows: Version 3.1c
+  Potentiostatic	[-1.95 Ref,3000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R2_CTAB_diaphram_20230613.cor (append)
+  Date: 10-02-2003    Time: 02:48:30
+   
+   
+  Open Circuit Potential (V): -0.345
+  Begin Information:          Cell Information
+    Surface Area:             1
+    Density:                  0
+    Weight:                   0
+    Polarity:                 0
+    PolarityI:                0
+    Corrosion Unit Type:      0
+    Reference Type:           0
+    Reference Potential:      0
+    User-Defined Potential:   0
+    Stern-Geary:              26
+  End Information:            Cell Information
+  Begin Pstat:                263
+    Pstat Title:              Instrument #1
+    Current Range:            0
+    Current Range Min.:       0
+    Current Gain:             0
+    Potential Range:          0
+    Auxilary Type:            0
+    iR Comp. Type:            0
+    iR Ohms:                  0
+    iR Time:                  1
+    iR Percent:               100
+    LP Filter Type:           0
+    IE Filter Type:           0
+    Bandwidth Type:           0
+    Point Avg:                100
+    Scan Interpolation:       0
+    Oversample Rate:          1000
+    External Input:           0
+    Trigger Wait1:            0
+    Trigger Wait2:            0
+    Trigger Wait Type:        1
+    Trigger Out:              0
+    Trigger Out Type:         1
+  End Pstat:                  263
+  Begin Experiment:           Potentiostatic	[-1.95 Ref,3000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R2_CTAB_diaphram_20230613.cor (append)
+    Data File:                C:\Documents and Settings\CESE\Desktop\Users\Yunkai\20230613 FeNiCoCu acidB-BWR5\-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R2_CTAB_diaphram_20230613.cor
+    Data Append:              1
+    Comment Lines:            0
+    Potential:                -1.95
+    Potential Type:           1
+    Total Time:               3000
+    Time Units:               0
+    Measure Rate Type:        1
+    Measure Rate #1:          2000
+    Measure Rate #2:          11
+    Measure Rate #3:          0.1
+    Measure Rate #4:          2
+    Use Threshold:            0
+    Threshold I_Min:          -0.21
+    Threshold I_Max:          15
+    Threshold Delta:          5
+    Threshold Time:           60
+    Copy AuxV:                0
+    Axes Type:                1
+    Use Custom Pstat:         0
+  End Experiment:             Potentiostatic	[-1.95 Ref,3000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR5)_Ru-2R2_CTAB_diaphram_20230613.cor (append)
+  Data Points:                38
+  E(Volts)	I(A/cm2)	T(Seconds)
+End Comments
+-1.945000E+00	-1.070000E-08	0.000000E+00
+-1.945000E+00	-8.300000E-09	9.090909E-02
+-1.945000E+00	-9.200000E-09	1.818182E-01
+-1.945000E+00	-9.400000E-09	2.727273E-01
+-1.945000E+00	-8.500000E-09	3.636364E-01
+-1.945000E+00	-1.000000E-08	4.545455E-01
+-1.810000E+00	-7.900000E-09	5.454545E-01
+-1.948000E+00	-1.010000E-08	6.363636E-01
+-1.945000E+00	-7.600000E-09	7.272727E-01
+-1.945000E+00	-9.700000E-09	8.181818E-01
+-1.945000E+00	-7.800000E-09	9.090909E-01
+-1.945000E+00	-8.800000E-09	1.000000E+00
+-1.945000E+00	-7.800000E-09	1.090909E+00
+-1.945000E+00	-8.000000E-09	1.181818E+00
+-1.945000E+00	-8.000000E-09	1.272727E+00
+-1.945000E+00	-6.800000E-09	1.363636E+00
+-1.945000E+00	-8.000000E-09	1.454545E+00
+-1.810000E+00	-5.600000E-09	1.545455E+00
+-1.812000E+00	-7.800000E-09	1.636364E+00
+-1.948000E+00	-5.400000E-09	1.727273E+00
+-1.945000E+00	-7.700000E-09	1.818182E+00
+-1.945000E+00	-5.600000E-09	1.909091E+00
+-1.810000E+00	-6.500000E-09	2.000000E+00
+-1.948000E+00	-5.900000E-09	2.090909E+00
+-1.945000E+00	-6.100000E-09	2.181818E+00
+-1.945000E+00	-6.600000E-09	2.272727E+00
+-1.945000E+00	-4.800000E-09	2.363636E+00
+-1.945000E+00	-6.800000E-09	2.454545E+00
+-1.945000E+00	-4.600000E-09	2.545455E+00
+-1.945000E+00	-6.700000E-09	2.636364E+00
+-1.945000E+00	-4.300000E-09	2.727273E+00
+-1.945000E+00	-6.300000E-09	2.818182E+00
+-1.945000E+00	-4.600000E-09	2.909091E+00
+-1.945000E+00	-5.400000E-09	3.000000E+00
+-1.810000E+00	-4.800000E-09	3.090909E+00
+-1.948000E+00	-4.700000E-09	3.181818E+00
+-1.945000E+00	-5.500000E-09	3.272727E+00
+-1.945000E+00	-3.900000E-09	3.363636E+00

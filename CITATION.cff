@@ -1,0 +1,107 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript."
+title: "GPR-FDA: Gaussian Process Regression for Functional Data Analysis"
+type: software
+version: 1.0.0
+date-released: 2026-08-19
+license: MIT
+repository-code: "https://github.com/Yunkai0825/GPR_FDA_curve_agg_pub"
+abstract: >-
+  Supporting source code for A Generalizable Framework for Quantifying
+  Uncertainty and Bias in Curve Aggregation for High-Throughput
+  Electrodeposition Data.
+keywords:
+  - functional data analysis
+  - Gaussian process regression
+  - uncertainty quantification
+  - curve aggregation
+  - electrodeposition
+  - high-throughput experimentation
+authors:
+  - given-names: Yunkai
+    family-names: Sun
+    affiliation: >-
+      Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+      and Engineering Division, Argonne National Laboratory, Lemont, IL 60439,
+      USA
+  - given-names: Hassan
+    family-names: Harb
+    affiliation: >-
+      Center for Steel Electrification by Electrosynthesis; Materials Science
+      Division, Argonne National Laboratory, Lemont, IL 60439, USA
+  - given-names: Giovanni
+    family-names: Zangari
+    affiliation: >-
+      Department of Materials Science & Engineering, University of Virginia,
+      Charlottesville, VA 22904, USA
+  - given-names: Rajeev
+    family-names: Assary
+    affiliation: >-
+      Center for Steel Electrification by Electrosynthesis; Materials Science
+      Division, Argonne National Laboratory, Lemont, IL 60439, USA
+  - given-names: "Brian J."
+    family-names: Ingram
+    affiliation: >-
+      Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+      and Engineering Division, Argonne National Laboratory, Lemont, IL 60439,
+      USA
+  - given-names: Zhenzhen
+    family-names: Yang
+    affiliation: >-
+      Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+      and Engineering Division, Argonne National Laboratory, Lemont, IL 60439,
+      USA
+contact:
+  - given-names: "Brian J."
+    family-names: Ingram
+    email: ingram@anl.gov
+    affiliation: >-
+      Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+      and Engineering Division, Argonne National Laboratory, Lemont, IL 60439,
+      USA
+  - given-names: Zhenzhen
+    family-names: Yang
+    email: yangzhzh@anl.gov
+    affiliation: >-
+      Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+      and Engineering Division, Argonne National Laboratory, Lemont, IL 60439,
+      USA
+preferred-citation:
+  type: unpublished
+  title: >-
+    A Generalizable Framework for Quantifying Uncertainty and Bias in Curve
+    Aggregation for High-Throughput Electrodeposition Data
+  authors:
+    - given-names: Yunkai
+      family-names: Sun
+      affiliation: >-
+        Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+        and Engineering Division, Argonne National Laboratory, Lemont, IL
+        60439, USA
+    - given-names: Hassan
+      family-names: Harb
+      affiliation: >-
+        Center for Steel Electrification by Electrosynthesis; Materials Science
+        Division, Argonne National Laboratory, Lemont, IL 60439, USA
+    - given-names: Giovanni
+      family-names: Zangari
+      affiliation: >-
+        Department of Materials Science & Engineering, University of Virginia,
+        Charlottesville, VA 22904, USA
+    - given-names: Rajeev
+      family-names: Assary
+      affiliation: >-
+        Center for Steel Electrification by Electrosynthesis; Materials Science
+        Division, Argonne National Laboratory, Lemont, IL 60439, USA
+    - given-names: "Brian J."
+      family-names: Ingram
+      affiliation: >-
+        Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+        and Engineering Division, Argonne National Laboratory, Lemont, IL
+        60439, USA
+    - given-names: Zhenzhen
+      family-names: Yang
+      affiliation: >-
+        Center for Steel Electrification by Electrosynthesis; Chemical Sciences
+        and Engineering Division, Argonne National Laboratory, Lemont, IL
+        60439, USA

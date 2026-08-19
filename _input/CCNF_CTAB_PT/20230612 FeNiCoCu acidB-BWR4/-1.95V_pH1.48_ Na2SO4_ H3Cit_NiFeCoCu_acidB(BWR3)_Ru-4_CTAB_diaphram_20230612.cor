@@ -1,0 +1,95 @@
+CORRW ASCII
+  CorrWare for Windows: Version 3.1c
+  Potentiostatic	[-1.95 Ref,5000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4_CTAB_diaphram_20230612.cor (append)
+  Date: 10-01-2003    Time: 02:59:47
+   
+   
+  Open Circuit Potential (V): 0.23
+  Begin Information:          Cell Information
+    Surface Area:             1
+    Density:                  0
+    Weight:                   0
+    Polarity:                 0
+    PolarityI:                0
+    Corrosion Unit Type:      0
+    Reference Type:           0
+    Reference Potential:      0
+    User-Defined Potential:   0
+    Stern-Geary:              26
+  End Information:            Cell Information
+  Begin Pstat:                263
+    Pstat Title:              Instrument #1
+    Current Range:            0
+    Current Range Min.:       0
+    Current Gain:             0
+    Potential Range:          0
+    Auxilary Type:            0
+    iR Comp. Type:            0
+    iR Ohms:                  0
+    iR Time:                  1
+    iR Percent:               100
+    LP Filter Type:           0
+    IE Filter Type:           0
+    Bandwidth Type:           0
+    Point Avg:                100
+    Scan Interpolation:       0
+    Oversample Rate:          1000
+    External Input:           0
+    Trigger Wait1:            0
+    Trigger Wait2:            0
+    Trigger Wait Type:        1
+    Trigger Out:              0
+    Trigger Out Type:         1
+  End Pstat:                  263
+  Begin Experiment:           Potentiostatic	[-1.95 Ref,5000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4_CTAB_diaphram_20230612.cor (append)
+    Data File:                C:\Documents and Settings\CESE\Desktop\Users\Yunkai\20230612 FeNiCoCu acidB-BWR3\-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4_CTAB_diaphram_20230612.cor
+    Data Append:              1
+    Comment Lines:            0
+    Potential:                -1.95
+    Potential Type:           1
+    Total Time:               5000
+    Time Units:               0
+    Measure Rate Type:        1
+    Measure Rate #1:          2000
+    Measure Rate #2:          11
+    Measure Rate #3:          0.1
+    Measure Rate #4:          2
+    Use Threshold:            0
+    Threshold I_Min:          -0.21
+    Threshold I_Max:          15
+    Threshold Delta:          5
+    Threshold Time:           60
+    Copy AuxV:                0
+    Axes Type:                1
+    Use Custom Pstat:         0
+  End Experiment:             Potentiostatic	[-1.95 Ref,5000 Sec][default]	-1.95V_pH1.48_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BWR3)_Ru-4_CTAB_diaphram_20230612.cor (append)
+  Data Points:                27
+  E(Volts)	I(A/cm2)	T(Seconds)
+End Comments
+-1.945000E+00	-3.830000E-08	0.000000E+00
+-1.945000E+00	-2.100000E-08	9.090909E-02
+-1.945000E+00	-1.890000E-08	1.818182E-01
+-1.945000E+00	-1.740000E-08	2.727273E-01
+-1.945000E+00	-1.660000E-08	3.636364E-01
+-1.945000E+00	-3.060000E-08	4.545455E-01
+-1.945000E+00	-2.340000E-08	5.454545E-01
+-1.945000E+00	-3.980000E-08	6.363636E-01
+-1.945000E+00	-4.370000E-08	7.272727E-01
+-1.945000E+00	-2.210000E-07	8.181818E-01
+-1.945000E+00	-4.780000E-07	9.090909E-01
+-1.945000E+00	-4.780000E-07	1.000000E+00
+-1.945000E+00	-5.200000E-08	1.090909E+00
+-1.945000E+00	-6.170000E-08	1.181818E+00
+-1.945000E+00	-6.170000E-08	1.272727E+00
+-1.945000E+00	-1.223000E-07	1.363636E+00
+-1.945000E+00	-9.410000E-08	1.454545E+00
+-1.945000E+00	-6.600000E-08	1.545455E+00
+-1.945000E+00	-7.470000E-08	1.636364E+00
+-1.945000E+00	-1.570000E-07	1.727273E+00
+-1.945000E+00	-3.180000E-07	1.818182E+00
+-1.945000E+00	-2.240000E-07	1.909091E+00
+-1.945000E+00	-3.290000E-07	2.000000E+00
+-1.945000E+00	-3.040000E-07	2.090909E+00
+-1.945000E+00	-9.500000E-08	2.181818E+00
+-1.945000E+00	-1.310000E-07	2.272727E+00
+-1.945000E+00	-2.880000E-08	2.363636E+00
