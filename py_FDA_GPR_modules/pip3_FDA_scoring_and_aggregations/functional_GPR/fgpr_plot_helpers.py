@@ -47,6 +47,7 @@ def plot_fgpr_curve(
     individual_alpha: float = 0.20,
     min_time_cap: float = 0.01,
     max_time_cap: Optional[float] = None,
+    x_axis_scale: str = "log",
     x_axis_label: str = "Time (s)",
     y_axis_label: str = "Current (A/cm²)",
     verbose: bool = True,
@@ -110,7 +111,7 @@ def plot_fgpr_curve(
                     color='C3', alpha=0.25, label=f'Posterior {confidence_level*100:.0f}% CI')
     ax.plot(x, mean_r, 'C3-', linewidth=1.8, label='FGPR mean')
 
-    ax.set_xscale('log')
+    ax.set_xscale(x_axis_scale)
     ax.set_xlim([min_time_cap, max_time_cap])
     ax.set_xlabel(x_axis_label)
     ax.set_ylabel(y_axis_label)
@@ -137,7 +138,7 @@ def plot_fgpr_curve(
                          color='C4', alpha=0.25, label=f'Posterior {confidence_level*100:.0f}% CI')
         ax2.plot(x, mean_n, 'C4-', linewidth=1.8, label='FGPR mean (norm)')
 
-        ax2.set_xscale('log')
+        ax2.set_xscale(x_axis_scale)
         ax2.set_xlim([min_time_cap, max_time_cap])
         ax2.set_xlabel(x_axis_label)
         ax2.set_ylabel(f"{y_axis_label} (normalized)")
@@ -166,6 +167,7 @@ def plot_fgpr_sigma_calibration(
     *,
     x_axis_label: str = "Time (s)",
     y_axis_label: str = "Current (A/cm²)",
+    x_axis_scale: str = "log",
     verbose: bool = True,
     dpi: int = 200,
 ) -> Optional[Path]:
@@ -221,7 +223,7 @@ def plot_fgpr_sigma_calibration(
                      color='C3', alpha=0.22, label='FGPR 1σ (pred)')
     ax0.scatter(np.tile(x, len(y_real_stack)), dev_real.flatten(),
                 s=6, alpha=0.08, color='gray', label='Samples')
-    ax0.set_xscale('log')
+    ax0.set_xscale(x_axis_scale)
     ax0.set_xlabel(x_axis_label)
     ax0.set_ylabel(f"Deviation ({y_axis_label})")
     ax0.set_title(f"FGPR σ calibration (real): {_format_group_key_title(result.group_key)}")
@@ -250,7 +252,7 @@ def plot_fgpr_sigma_calibration(
                          color='C4', alpha=0.22, label='FGPR 1σ (pred, norm)')
         ax1.scatter(np.tile(x, len(y_norm_stack)), dev_norm.flatten(),
                     s=6, alpha=0.08, color='gray', label='Samples (norm)')
-        ax1.set_xscale('log')
+        ax1.set_xscale(x_axis_scale)
         ax1.set_xlabel(x_axis_label)
         ax1.set_ylabel(f"Deviation ({y_axis_label}, norm)")
         ax1.set_title(f"FGPR σ calibration (norm): {_format_group_key_title(result.group_key)}")

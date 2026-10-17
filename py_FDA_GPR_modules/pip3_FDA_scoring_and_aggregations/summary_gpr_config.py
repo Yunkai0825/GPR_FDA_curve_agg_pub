@@ -53,7 +53,10 @@ class SummaryGPRConfig:
         Minimum time for x-axis display.
     max_time_cap : float
         Maximum time for x-axis display.
-        
+    x_axis_scale : str
+        X-axis scale for summary plots: "log" (default, e.g. time) or
+        "linear" (e.g. a ratio such as I/I_lim).
+
     process_groups : List[str], optional
         Specific group keys to process. If None, process all.
     """
@@ -85,7 +88,8 @@ class SummaryGPRConfig:
     # Display limits
     min_time_cap: float = 1e-4
     max_time_cap: Optional[float] = None  # None → auto-derive from data
-    
+    x_axis_scale: str = "log"             # "log" | "linear"
+
     # Method toggles
     enable_operator_fusion: bool = False  # skip operator fusion when False
     enable_fgpr: bool = False              # skip FGPR when False
@@ -109,7 +113,9 @@ class SummaryGPRConfig:
             raise ValueError(f"weight_scope must be 'curve' or 'point', got '{self.weight_scope}'")
         if self.variance_aggregation_scale not in ("real", "normalised"):
             raise ValueError(f"variance_aggregation_scale must be 'real' or 'normalised', got '{self.variance_aggregation_scale}'")
-    
+        if self.x_axis_scale not in ("log", "linear"):
+            raise ValueError(f"x_axis_scale must be 'log' or 'linear', got '{self.x_axis_scale}'")
+
     @classmethod
     def from_settings(
         cls,

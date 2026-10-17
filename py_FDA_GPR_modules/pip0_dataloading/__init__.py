@@ -50,6 +50,12 @@ from .cor_file_parser import (
     read_data_points,
 )
 
+# Generic one-curve-per-file CSV parsing (pip0_dataloading.file_extension = ".csv")
+from .csv_curve_parser import (
+    find_curve_files,
+    parse_csv_curve_file,
+)
+
 # Settings Manager
 from .settings_manager import (
     SettingsManager,
@@ -93,4 +99,6 @@ __all__ = [
     "extract_curve_data",
     "find_data_start",
     "read_data_points",
+    "find_curve_files",
+    "parse_csv_curve_file",
 ]

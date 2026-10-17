@@ -49,6 +49,7 @@ def plot_student_t_curve(
     individual_alpha: float = 0.20,
     min_time_cap: float = 0.01,
     max_time_cap: Optional[float] = None,
+    x_axis_scale: str = "log",
     x_axis_label: str = "Time (s)",
     y_axis_label: str = "Current (A/cm²)",
     verbose: bool = True,
@@ -102,7 +103,7 @@ def plot_student_t_curve(
                     label=f'Posterior {confidence_level*100:.0f}% CI')
     ax.plot(x, mean_r, 'C1-', linewidth=1.8, label='Student-t mean')
 
-    ax.set_xscale('log')
+    ax.set_xscale(x_axis_scale)
     ax.set_xlim([min_time_cap, max_time_cap])
     ax.set_xlabel(x_axis_label)
     ax.set_ylabel(y_axis_label)
@@ -133,7 +134,7 @@ def plot_student_t_curve(
                          label=f'Posterior {confidence_level*100:.0f}% CI')
         ax2.plot(x, mean_n, 'C2-', linewidth=1.8, label='Student-t mean (norm)')
 
-        ax2.set_xscale('log')
+        ax2.set_xscale(x_axis_scale)
         ax2.set_xlim([min_time_cap, max_time_cap])
         ax2.set_xlabel(x_axis_label)
         ax2.set_ylabel(f"{y_axis_label} (normalized)")
@@ -162,6 +163,7 @@ def plot_student_t_sigma_calibration(
     *,
     x_axis_label: str = "Time (s)",
     y_axis_label: str = "Current (A/cm²)",
+    x_axis_scale: str = "log",
     verbose: bool = True,
     dpi: int = 200,
 ) -> Optional[Path]:
@@ -223,7 +225,7 @@ def plot_student_t_sigma_calibration(
                      color='C1', alpha=0.22, label='Student-t 1σ (pred)')
     ax0.scatter(np.tile(x, len(y_real_stack)), dev_real.flatten(),
                 s=6, alpha=0.08, color='gray', label='Samples')
-    ax0.set_xscale('log')
+    ax0.set_xscale(x_axis_scale)
     ax0.set_xlabel(x_axis_label)
     ax0.set_ylabel(f"Deviation ({y_axis_label})")
     ax0.set_title(f"Student-t σ calibration (real): {_format_group_key_title(result.group_key)}")
@@ -251,7 +253,7 @@ def plot_student_t_sigma_calibration(
                          color='C2', alpha=0.22, label='Student-t 1σ (pred, norm)')
         ax1.scatter(np.tile(x, len(y_norm_stack)), dev_norm.flatten(),
                     s=6, alpha=0.08, color='gray', label='Samples (norm)')
-        ax1.set_xscale('log')
+        ax1.set_xscale(x_axis_scale)
         ax1.set_xlabel(x_axis_label)
         ax1.set_ylabel(f"Deviation ({y_axis_label}, norm)")
         ax1.set_title(f"Student-t σ calibration (norm): {_format_group_key_title(result.group_key)}")

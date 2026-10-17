@@ -440,6 +440,7 @@ class BatchTestingOrchestrator:
                 comparison_config = BatchComparisonConfig(
                     x_axis_label=self.summary_gpr_config.x_axis_label,
                     y_axis_label=self.summary_gpr_config.y_axis_label,
+                    x_axis_scale=self.summary_gpr_config.x_axis_scale,
                 )
                 plot_results = plot_all_comparisons(
                     batch_output_dir=base_dir,

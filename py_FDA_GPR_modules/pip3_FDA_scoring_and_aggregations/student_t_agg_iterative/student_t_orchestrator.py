@@ -168,6 +168,7 @@ class StudentTOrchestrator:
             individual_alpha=self.cfg.individual_curve_alpha,
             min_time_cap=self.cfg.min_time_cap,
             max_time_cap=self.cfg.max_time_cap,
+            x_axis_scale=self.cfg.x_axis_scale,
             x_axis_label=self.cfg.x_axis_label,
             y_axis_label=self.cfg.y_axis_label,
             verbose=self.verbose,
@@ -179,6 +180,7 @@ class StudentTOrchestrator:
             result, output_dir, gprs=gprs,
             x_axis_label=self.cfg.x_axis_label,
             y_axis_label=self.cfg.y_axis_label,
+            x_axis_scale=self.cfg.x_axis_scale,
             verbose=self.verbose,
         )
         plot_student_t_weight_convergence(result, output_dir, verbose=self.verbose)

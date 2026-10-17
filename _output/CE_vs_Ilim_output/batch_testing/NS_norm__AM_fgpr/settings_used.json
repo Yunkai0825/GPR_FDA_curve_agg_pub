@@ -1,0 +1,246 @@
+{
+    "_meta": {
+        "version": "1.0.0",
+        "description": "GPR-FDA settings: Coulombic efficiency vs I/I_lim (Fe electrodeposition, 0.1 M FeSO4, 4 C/cm2), 7 curves in one group",
+        "author": "Yunkai Sun (C-STEEL, CSE, ANL)",
+        "notes": "Curves are sparse (2-5 points), so pip2 uses group-level shared kernel hyperparameters. x is modelled as sqrt(I/I_lim) (sqrt scaling, grid uniform in sqrt) and all results are transformed back to I/I_lim and plotted on a linear axis. Curve CSVs come from ../convert_xlsx_to_curve_csvs.py.",
+        "loaded_at": "2026-10-05T16:03:58.642009",
+        "input_folder": "./_input\\Limiting current - efficiency\\CE_vs_Ilim",
+        "saved_at": "2026-10-05T16:06:39.938181",
+        "source_file": "./_input\\Limiting current - efficiency\\CE_vs_Ilim\\settings_CE_vs_Ilim.json"
+    },
+    "output_structure": {
+        "base_output_dir": "_output",
+        "pip2_individual_gpr": "individual_GPR",
+        "pip3_scoring_aggregations": "summary_gpr",
+        "pip4_efficiency_eval": "learning_curve",
+        "pip5_batch_testing": "batch_testing"
+    },
+    "pip0_dataloading": {
+        "file_extension": ".csv",
+        "filename_parsing": {
+            "delimiter": "_",
+            "grouping_keys": [
+                {
+                    "name": "dataset",
+                    "token_index": 0,
+                    "dtype": "string",
+                    "description": "Dataset tag shared by all curves (CEvsIlim), so all curves form one group"
+                }
+            ],
+            "metadata_keys": [
+                {
+                    "name": "dmf_vol_pct",
+                    "token_index": 1,
+                    "dtype": "float",
+                    "regex_extract": "^DMF(\\d+\\.?\\d*)vol$",
+                    "description": "DMF content in vol% (e.g., DMF10vol -> 10)"
+                },
+                {
+                    "name": "acid_condition",
+                    "token_index": 2,
+                    "dtype": "string",
+                    "description": "pHadj3 (pH adjusted to ~3) or H2SO4const (constant H2SO4)"
+                },
+                {
+                    "name": "curve_index",
+                    "token_index": 3,
+                    "dtype": "int",
+                    "regex_extract": "^c(\\d+)",
+                    "description": "Curve number in the source workbook (c1..c7)"
+                }
+            ]
+        },
+        "primary_grouping_key": "dataset",
+        "fallback_to_file_content": false
+    },
+    "pip1_datapreprocessing": {
+        "column_names": {
+            "x_col": "I/I_lim (-)",
+            "y_col": "CE (%)"
+        },
+        "filtering": {
+            "enable_filtering": false,
+            "_enable_filtering_note": "Disabled: every measured point is kept (2-5 points per curve). The keys below are required by the schema but unused.",
+            "max_points_set": 500,
+            "min_x_cap": 0.0,
+            "max_x_cap": 100.0,
+            "min_curve_range": 0.0,
+            "y_threshold": 0.0
+        },
+        "x_scaling": {
+            "method": "sqrt",
+            "_method_options": [
+                "sqrt",
+                "log",
+                "identity"
+            ],
+            "params": {
+                "shift": 0.0
+            },
+            "_params_note": "sqrt: {shift}; log: {base: log10|natural, shift: 1e-9}"
+        },
+        "y_scaling": {
+            "method": "peak",
+            "params": {}
+        },
+        "grouping": {
+            "group_round_digits": 2
+        }
+    },
+    "pip2_individual_gpr": {
+        "gpr_params": {
+            "n_restarts_optimizer": 20,
+            "alpha": 0.0,
+            "normalize_y": false,
+            "shared_hyperparameters": true,
+            "_shared_hyperparameters_note": "One kernel theta* per group from the summed log marginal likelihood of all curves (group-level X/y StandardScalers); each curve is then conditioned on its own points with theta* frozen.",
+            "num_curves_threshold": 50,
+            "num_X_pred_points_individual_default": 268,
+            "num_X_pred_points_individual_high": 268,
+            "local_var_val_flag": false
+        },
+        "shared_grid": {
+            "enabled": true,
+            "method": "explicit",
+            "_method_options": [
+                "auto",
+                "explicit",
+                "per_group"
+            ],
+            "explicit_grid": "np.linspace(np.sqrt(0.03), np.sqrt(2.70), 268)",
+            "_explicit_grid_note": "Grid in sqrt(I/I_lim) (the transformed space), uniform in sqrt: I/I_lim 0.03-2.70, covering all measured points (0.04-2.67). Must match x_scaling (log: np.linspace(np.log10(0.03), np.log10(2.70), 268)).",
+            "auto_num_points": 268,
+            "auto_padding_fraction": 0.0,
+            "refit_on_full_data": true
+        },
+        "posterior_covariance": {
+            "store_full_covariance": true,
+            "storage_mode": "full",
+            "_storage_mode_options": [
+                "full",
+                "diagonal",
+                "sparse",
+                "cholesky"
+            ],
+            "sparse_threshold": 1e-06
+        },
+        "kernel": {
+            "_note": "Bounds are in group-standardized units (StandardScaler on x and y).",
+            "constant_bounds": [
+                0.001,
+                100.0
+            ],
+            "matern_length_scale": 1.0,
+            "matern_length_scale_bounds": [
+                0.01,
+                100.0
+            ],
+            "matern_nu": 2.5,
+            "white_noise_level": 0.01,
+            "white_noise_bounds": [
+                1e-06,
+                1.0
+            ]
+        },
+        "export": {
+            "plot_individual_gpr": true,
+            "individual_curve_alpha": 0.3,
+            "plot_downsample_points": 500,
+            "dpi": 150,
+            "max_points_to_save": 10000
+        }
+    },
+    "pip3_summary_gpr": {
+        "file_pattern": "Individual_GPR_*.csv",
+        "aggregation": {
+            "weight_mode": "equal",
+            "_weight_mode_options": [
+                "equal",
+                "iterative"
+            ],
+            "weight_scope": "curve",
+            "_weight_scope_options": [
+                "curve",
+                "point"
+            ],
+            "include_within_variance": true,
+            "include_between_variance": true,
+            "variance_aggregation_scale": "normalised",
+            "_variance_aggregation_scale_options": [
+                "real",
+                "normalised"
+            ],
+            "normalization_summary": true,
+            "enable_operator_fusion": false,
+            "enable_fgpr": true,
+            "enable_student_t": true,
+            "aggregation_method": "fgpr"
+        },
+        "plotting": {
+            "plot_individual_gprs": true,
+            "individual_curve_alpha": 0.2,
+            "min_time_cap": 0.0,
+            "max_time_cap": null,
+            "x_axis_scale": "linear",
+            "_x_axis_scale_options": [
+                "log",
+                "linear"
+            ]
+        },
+        "hyperparams": {
+            "max_iterations": null,
+            "convergence_tol": 1e-06,
+            "epsilon": 1e-12,
+            "confidence_level": 0.75,
+            "num_interp_points": 500,
+            "fgpr_min_scale_factor_ratio": 0.0,
+            "fgpr_structured_btw": false,
+            "student_t_nu": 5.0,
+            "student_t_optimize_nu": true,
+            "student_t_nu_bounds": [
+                1.0,
+                500.0
+            ],
+            "student_t_nu_lb_adaptive": false,
+            "student_t_max_iterations": 100,
+            "student_t_convergence_tol": 1e-06
+        }
+    },
+    "pip4_efficiency_eval": {
+        "global": {
+            "metric": "rmse",
+            "base_repeats": 50,
+            "max_enum": 20,
+            "q_low": 0.25,
+            "q_high": 0.75,
+            "random_seed": 42
+        },
+        "scale": {
+            "use_log_error": true,
+            "log_base_error": "10",
+            "eps_error": 1e-30,
+            "use_log_cost": true,
+            "log_base_cost": "10",
+            "eps_cost": 1e-30,
+            "normalize_w_rbar": false
+        },
+        "plot": {
+            "figsize": [
+                10,
+                4
+            ],
+            "dpi": 150,
+            "xlabel": "Number of curves",
+            "ylabel": "Error metric",
+            "time_label": "CPU time (s)"
+        }
+    },
+    "pip5_batch_testing": {
+        "include_fgpr": true,
+        "include_student_t": true,
+        "run_summary_gpr": true,
+        "run_efficiency_eval": true,
+        "run_comparison_plots": true
+    }
+}

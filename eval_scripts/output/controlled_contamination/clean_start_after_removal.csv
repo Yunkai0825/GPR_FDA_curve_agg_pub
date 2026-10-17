@@ -1,0 +1,2 @@
+pointwise_max_over_clean_band,clean_band_ratio_deviation_max,pointwise_max_over_band_bound,pointwise_max_over_band,pointwise_iterations,pointwise_converged,n_reference,n_variant,notes
+9.933317618477791e-05,3.2350959298099724e-06,9.933349753713189e-05,9.933299456567273e-05,1,1,151,154,"154 curves, point-wise weighting started from the 151-curve solution"

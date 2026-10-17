@@ -1,0 +1,22 @@
+# DIAGNOSTIC_METADATA_START
+# sample_id: CEvsIlim_DMF10vol_pHadj3_c3
+# n_training: 3
+# n_validation: 3
+# refitted_pct_within_1sig: 100.0
+# refitted_pct_within_2sig: 100.0
+# true_pct_within_1sig: 100.0
+# true_pct_within_2sig: 100.0
+# expected_1sig: 68.27
+# expected_2sig: 95.45
+# COORDINATE_SYSTEM: normalized_user_defined
+# NOTE: data_type='training'  → refitted GPR (all data) predicted at training points  (plots 5,6)
+# NOTE: data_type='validation' → train-only GPR predicted at held-out validation points (plot 7)
+# NOTE: Calibration percentages in metadata header support plot 8
+# DIAGNOSTIC_METADATA_END
+data_type,x,y_observed,y_pred,y_std,standardized_residual
+training,0.6194594417716143,1.0,0.990811579903687,0.06315952690815999,0.14547955837487406
+training,1.0729352263766905,0.8097560975609756,0.8089532916723282,0.06297899334941096,0.012747201005875217
+training,1.3851570308091425,0.6025824964131994,0.6234162249774613,0.06301678911816182,-0.33060599917485967
+validation,[0.61945944],1.0,0.990811579903687,0.06315952690815999,0.14547955837487406
+validation,[1.07293523],0.8097560975609756,0.8089532916723282,0.06297899334941096,0.012747201005875217
+validation,[1.38515703],0.6025824964131994,0.6234162249774613,0.06301678911816182,-0.33060599917485967

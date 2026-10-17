@@ -209,7 +209,11 @@ def _reconstruct_scaling_info(method: str, params: Dict[str, Any]) -> ScalingInf
         base = params.get("base", "log10")
         shift = params.get("shift", 1e-9)
         return ScalingInfo.log_transform(shift=shift, base=base)
-    
+
+    elif method == "sqrt":
+        shift = params.get("shift", 0.0)
+        return ScalingInfo.sqrt_transform(shift=shift)
+
     elif method == "peak":
         # Reconstruct peak normalization using divide_by_factor
         factor = params.get("factor", 1.0)

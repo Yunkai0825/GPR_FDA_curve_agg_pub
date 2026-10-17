@@ -21,6 +21,7 @@ from .cor_file_parser import (
     find_cor_files,
     parse_cor_file,
 )
+from .csv_curve_parser import find_curve_files, parse_csv_curve_file
 from .filename_parser import parse_filename
 
 
@@ -41,17 +42,22 @@ class LoadedCurve:
         The primary grouping key is configurable (default: first key in grouping_keys).
     data_points : List[Dict[str, float]]
         List of data point dictionaries with keys:
-        'E (Volts)', 'I (A/cm2)', 'T (Seconds)'.
+        'E (Volts)', 'I (A/cm2)', 'T (Seconds)' for .cor files, or the
+        CSV column names for .csv files.
     metadata : Dict[str, Any]
         Additional metadata extracted from filename (e.g., electrolyte, additive, alloy).
         NOT used for grouping or filename generation.
+    x_key, y_key : str
+        data_points keys used by the x_raw / y_raw convenience properties.
     """
     file_path: Path
     sample_id: str
     group_flags: Dict[str, Any]
     data_points: List[Dict[str, float]]
     metadata: Dict[str, Any] = field(default_factory=dict)
-    
+    x_key: str = 'T (Seconds)'
+    y_key: str = 'I (A/cm2)'
+
     # Cached numpy arrays (computed on first access)
     _x_raw_cache: Optional[Any] = field(default=None, repr=False)
     _y_raw_cache: Optional[Any] = field(default=None, repr=False)
@@ -67,18 +73,18 @@ class LoadedCurve:
     
     @property
     def x_raw(self) -> Any:  # np.ndarray, but avoid import
-        """Original x values (time) as numpy array."""
+        """Original x values (time for .cor files) as numpy array."""
         if self._x_raw_cache is None:
             import numpy as np
-            self._x_raw_cache = np.array([p['T (Seconds)'] for p in self.data_points])
+            self._x_raw_cache = np.array([p[self.x_key] for p in self.data_points])
         return self._x_raw_cache
-    
+
     @property
     def y_raw(self) -> Any:  # np.ndarray, but avoid import
-        """Original y values (current) as numpy array."""
+        """Original y values (current for .cor files) as numpy array."""
         if self._y_raw_cache is None:
             import numpy as np
-            self._y_raw_cache = np.array([p['I (A/cm2)'] for p in self.data_points])
+            self._y_raw_cache = np.array([p[self.y_key] for p in self.data_points])
         return self._y_raw_cache
     
     @property
@@ -253,37 +259,56 @@ class DataLoader:
         """Get the underlying RawIOCfg for backward compatibility."""
         return self._raw_cfg
     
+    @property
+    def file_extension(self) -> str:
+        """Data file extension from settings (default: '.cor')."""
+        if self.filename_parsing_config:
+            return self.filename_parsing_config.get("file_extension", ".cor").lower()
+        return ".cor"
+
     def find_files(self) -> List[Path]:
         """
-        Find all unique .cor files in the directory.
-        
+        Find all unique data files (.cor, or the configured extension) in the directory.
+
         Returns
         -------
         List[Path]
-            List of unique .cor file paths.
+            List of unique data file paths.
         """
-        return find_cor_files(self._raw_cfg)
-    
+        if self.file_extension == ".cor":
+            return find_cor_files(self._raw_cfg)
+        return find_curve_files(self._raw_cfg, self.file_extension)
+
     def parse_file(self, file_path: Path | str) -> List[LoadedCurve]:
         """
-        Parse a single .cor file and return loaded curves.
-        
+        Parse a single data file (.cor or one-curve .csv) and return loaded curves.
+
         Grouping keys are extracted in this priority:
         1. From filename (if filename_parsing_config is provided)
         2. From file content (fallback if filename parsing fails or not configured)
-        
+
         Parameters
         ----------
         file_path : Path or str
-            Path to the .cor file.
-            
+            Path to the data file.
+
         Returns
         -------
         List[LoadedCurve]
             List of curves extracted from the file.
         """
         file_path = Path(file_path)
-        raw_curves = parse_cor_file(file_path)
+        if file_path.suffix.lower() == ".cor":
+            raw_curves = parse_cor_file(file_path)
+        else:
+            raw_curves = parse_csv_curve_file(file_path)
+
+        # x/y keys for LoadedCurve.x_raw / y_raw (CSV: pip1 column names from settings)
+        xy_keys = {}
+        if self.filename_parsing_config:
+            for attr, key in (("x_key", "x_col"), ("y_key", "y_col")):
+                if self.filename_parsing_config.get(key):
+                    xy_keys[attr] = self.filename_parsing_config[key]
         
         # Try to extract grouping keys and metadata from filename
         filename_group_flags = {}
@@ -341,6 +366,7 @@ class DataLoader:
                 group_flags=group_flags,
                 data_points=c['data_points'],
                 metadata=filename_metadata,
+                **xy_keys,
             ))
         
         return loaded_curves
@@ -373,17 +399,17 @@ class DataLoader:
         curves_by_primary_key: Dict[Any, List[LoadedCurve]] = defaultdict(list)
         curves_by_group: Dict[str, List[LoadedCurve]] = defaultdict(list)
         
-        # Find all .cor files
+        # Find all data files (.cor by default)
         cor_files = self.find_files()
         result.num_files_processed = len(cor_files)
-        
+
         if not cor_files:
             if self.verbose:
-                print("No .cor files found.")
+                print(f"No {self.file_extension} files found.")
             return result
-        
+
         if self.verbose:
-            print(f"Processing {len(cor_files)} .cor files...")
+            print(f"Processing {len(cor_files)} {self.file_extension} files...")
         
         # Parse each file
         for file_path in cor_files:

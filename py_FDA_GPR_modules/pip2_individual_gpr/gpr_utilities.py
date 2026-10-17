@@ -861,6 +861,7 @@ def export_gpr_result_to_csv(
         f"# validation_rmse: {gpr_result.validation_rmse}",
         f"# hyperparams_str: {gpr_result.hyperparams_str}",
         f"# hyperparams: {json.dumps(hyperparams_serializable)}",
+        f"# hyperparams_units: {gpr_result.hyperparameter_units()}",
         f"# num_prediction_points: {len(gpr_result.x_pred_transformed)}",
         "# GRID_TYPE: shared_regulated",
         f"# grid_x_min: {float(gpr_result.x_pred_transformed.min())}",
@@ -1264,6 +1265,7 @@ def export_validation_results(
     group_key: str,
     output_directory: Union[Path, str],
     verbose: bool = True,
+    filename_suffix: str = "",
 ) -> Path:
     """
     Export validation results for a group to CSV.
@@ -1278,6 +1280,8 @@ def export_validation_results(
         Directory to save CSV.
     verbose : bool
         Whether to print status.
+    filename_suffix : str
+        Appended to the file name, e.g. "_standardscaler".
         
     Returns
     -------
@@ -1289,7 +1293,7 @@ def export_validation_results(
     
     df = pd.DataFrame(validation_results)
     safe_group_key = group_key.replace('|', '_').replace('=', '_')
-    filename = output_dir / f"Validation_Results_{safe_group_key}.csv"
+    filename = output_dir / f"Validation_Results_{safe_group_key}{filename_suffix}.csv"
     df.to_csv(filename, index=False)
     
     if verbose:

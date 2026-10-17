@@ -75,6 +75,7 @@ class BatchComparisonConfig:
     dpi: int = 300
     min_time_cap: float = 1e-4
     max_time_cap: float = 1e4
+    x_axis_scale: str = "log"  # "log" (uses the time caps) | "linear" (autoscaled)
     
     # Legend settings
     legend_fontsize: int = 8
@@ -182,7 +183,11 @@ def load_summary_gpr_data(
     For FGPR-only permutations (no iterative output), loads the
     FGPR_Curve CSV and maps its columns to the expected schema
     (x_real, y_real, Lower_CI_real, Upper_CI_real).
-    
+
+    For Student-t permutations, loads the StudentT_Curve CSV (mapped the
+    same way) instead of the equal-weight iterative CSV that the same
+    run also writes.
+
     Parameters
     ----------
     batch_output_dir : Path
@@ -198,7 +203,21 @@ def load_summary_gpr_data(
         Summary GPR data, or None if not found.
     """
     perm_dir = Path(batch_output_dir) / permutation_tag
-    
+
+    # Student-t permutations also write an equal-weight iterative
+    # Summary_GPR CSV, so their own curve must be picked first.
+    if parse_permutation_tag(permutation_tag).get("AM") == "student_t":
+        st_path = perm_dir / "summary_gpr" / "student_t" / f"StudentT_Curve_{group_key}.csv"
+        if st_path.exists():
+            df = pd.read_csv(st_path)
+            remap = {
+                "student_t_mean_real": "y_real",
+                "student_t_std_real": "y_std_real",
+                "student_t_lower_real": "Lower_CI_real",
+                "student_t_upper_real": "Upper_CI_real",
+            }
+            return df.rename(columns={k: v for k, v in remap.items() if k in df.columns})
+
     # Try summary_gpr/iterative subfolder first (current layout)
     summary_dir = perm_dir / "summary_gpr" / "iterative"
     csv_path = summary_dir / f"Summary_GPR_{group_key}.csv"
@@ -376,10 +395,11 @@ def get_short_label(tag: str) -> str:
     ns = ns_abbr.get(components.get("NS", ""), components.get("NS", "?"))
     
     # FGPR tag: NS_norm__AM_fgpr  -> "N.fgpr"
+    # Student-t tag: NS_norm__AM_student_t  -> "N.student_t"
     am = components.get("AM")
-    if am == "fgpr":
-        return f"{ns}.fgpr"
-    
+    if am in ("fgpr", "student_t"):
+        return f"{ns}.{am}"
+
     wm = wm_abbr.get(components.get("WM", ""), components.get("WM", "?"))
     ws = ws_abbr.get(components.get("WS", ""), components.get("WS", "?"))
     
@@ -509,8 +529,9 @@ def plot_summary_gpr_comparison(
     ax.set_xlabel(config.x_axis_label)
     ax.set_ylabel(config.y_axis_label)
     ax.set_title(f"Summary GPR Comparison: {group_key}\n({len(data_dict)} permutations)")
-    ax.set_xscale("log")
-    ax.set_xlim((config.min_time_cap, config.max_time_cap))
+    ax.set_xscale(config.x_axis_scale)
+    if config.x_axis_scale == "log":
+        ax.set_xlim((config.min_time_cap, config.max_time_cap))
     ax.grid(True, alpha=0.3)
     
     # Condensed legend

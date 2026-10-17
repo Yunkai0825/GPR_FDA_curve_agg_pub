@@ -154,19 +154,27 @@ class IterativeGPROrchestrator:
         # 1) Summary GPR plot (mean + CI + variance comparison) from CSV
         summary_csv = output_dir / f'Summary_GPR_{safe_key}.csv'
         individual_csvs = None
+        individual_curves = None
         if self.cfg.plot_individual_gprs and gprs:
             individual_csvs = [gpr.filepath for gpr in gprs if gpr.filepath]
+            # Real-scale (x, y) of each curve, as in the FGPR / Student-t plots
+            individual_curves = [
+                (np.asarray(gpr.x_pred_original), np.asarray(gpr.y_pred))
+                for gpr in gprs
+            ]
 
         plot_summary_gpr_from_csv(
             summary_csv_path=summary_csv,
             output_directory=output_dir,
             individual_gpr_csvs=individual_csvs,
+            individual_curves=individual_curves,
             group_key=result.group_key,
             confidence_level=self.hp.confidence_level,
             plot_individuals=self.cfg.plot_individual_gprs,
             individual_alpha=self.cfg.individual_curve_alpha,
             min_time_cap=self.cfg.min_time_cap,
             max_time_cap=self.cfg.max_time_cap,
+            x_axis_scale=self.cfg.x_axis_scale,
             x_axis_label=self.cfg.x_axis_label,
             y_axis_label=self.cfg.y_axis_label,
             verbose=self.verbose,
@@ -211,6 +219,8 @@ class IterativeGPROrchestrator:
                 x_axis_label=self.cfg.x_axis_label,
                 y_axis_label=iter_y_label,
                 x_is_log=True,
+                x_real=result.x_pred_original,
+                x_axis_scale=self.cfg.x_axis_scale,
                 verbose=self.verbose,
             )
 
@@ -220,5 +230,6 @@ class IterativeGPROrchestrator:
                 result, output_dir, gprs=gprs,
                 x_axis_label=self.cfg.x_axis_label,
                 y_axis_label=self.cfg.y_axis_label,
+                x_axis_scale=self.cfg.x_axis_scale,
                 verbose=self.verbose,
             )

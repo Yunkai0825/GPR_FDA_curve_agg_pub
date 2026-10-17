@@ -1,0 +1,13 @@
+# source_file: Efficiency-limiting current data.xlsx
+# sheet: Sheet1
+# columns: P-T, rows 4-8
+# condition: 25vol% DMF
+# dmf_vol_pct: 25
+# acid_condition: pHadj3
+# formulas (row 3): I/I_lim (-) = P/Q, CE (%) = S/4*100
+I_applied,I_lim,I/I_lim (-),D (C/cm2),CE (%)
+1.0,8.8468,0.11304,3.097,77.425
+5.0,8.8468,0.56518,3.378,84.45
+5.0,8.8468,0.56518,3.402,85.05
+15.0,8.8468,1.69553,2.698,67.45
+15.0,8.8468,1.69553,2.254,56.35

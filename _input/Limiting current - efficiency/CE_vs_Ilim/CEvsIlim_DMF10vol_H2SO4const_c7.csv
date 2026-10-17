@@ -1,0 +1,13 @@
+# source_file: Efficiency-limiting current data.xlsx
+# sheet: Sheet1
+# columns: AE-AI, rows 4-8
+# condition: 10vol% DMF (constant H2SO4 with 25% pH~2.0)
+# dmf_vol_pct: 10
+# acid_condition: H2SO4const
+# formulas (row 3): I/I_lim (-) = AE/AF/B*AA, CE (%) = AH/4*100
+I_applied,I_lim,I/I_lim (-),D (C/cm2),CE (%)
+1.0,13.02996,0.1068,2.706,67.65
+5.0,13.02996,0.53398,3.324,83.1
+5.0,13.02996,0.53398,3.33,83.25
+15.0,13.02996,1.60194,3.128,78.2
+25.0,13.02996,2.6699,2.463,61.575

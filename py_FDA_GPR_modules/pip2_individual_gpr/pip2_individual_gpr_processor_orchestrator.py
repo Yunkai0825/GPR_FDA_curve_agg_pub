@@ -27,11 +27,15 @@ from .gpr_config import GPRCfg, ExportCfg, SharedGridConfig
 from .gpr_functions import (
     PosteriorResult,
     perform_gpr,
+    hyperparams_to_physical,
     generate_predictions,
     validate_gpr,
     refit_with_frozen_hyperparameters,
     regulate_to_shared_grid,
     full_regulation_workflow,
+    SharedHyperparameters,
+    fit_shared_hyperparameters,
+    shared_hyperparameter_workflow,
 )
 from .gpr_utilities import (
     group_curves_by_key,
@@ -105,10 +109,17 @@ class GPRFitResult:
     scaler_y : StandardScaler
         Sklearn scaler for y values (statistical normalization).
     hyperparams_str : str
-        String representation of optimized kernel.
+        String representation of optimized kernel, in GPR data units
+        (pip1-transformed x, pip1-normalized y; see hyperparams_to_physical).
     hyperparams : dict
-        Dictionary of kernel hyperparameters.
-    
+        Dictionary of kernel hyperparameters, in GPR data units.
+    hyperparams_str_standardscaler, hyperparams_standardscaler :
+        The same θ* in StandardScaler fit space (exported only to the
+        *_standardscaler validation file).
+    standardscaler_stats : dict
+        scaler_X_mean, scaler_X_std, scaler_y_mean, scaler_y_std,
+        normalize_y_std (sklearn's internal y std, 1 without normalize_y).
+
     Posterior Distribution:
     -----------------------
     posterior : PosteriorResult
@@ -147,7 +158,10 @@ class GPRFitResult:
     scaler_y: Optional[StandardScaler] = None
     hyperparams_str: str = ""
     hyperparams: Dict[str, Any] = field(default_factory=dict)
-    
+    hyperparams_str_standardscaler: str = ""
+    hyperparams_standardscaler: Dict[str, Any] = field(default_factory=dict)
+    standardscaler_stats: Dict[str, float] = field(default_factory=dict)
+
     # Validation data (for calibration plots)
     x_val: Optional[np.ndarray] = None
     y_val: Optional[np.ndarray] = None
@@ -203,15 +217,22 @@ class GPRFitResult:
         self.x_val = None
         self.y_val = None
 
-    def get_validation_dict(self) -> Dict[str, Any]:
-        """Get validation results as dictionary."""
+    def hyperparameter_units(self) -> str:
+        """Units of the hyperparameters in get_validation_dict."""
+        x_method = self.x_scaling.method if self.x_scaling is not None else "none"
+        y_method = self.y_scaling.method if self.y_scaling is not None else "none"
+        return (f"data units: x = pip1 x ({x_method}), y = pip1 y ({y_method}); "
+                f"constant_value and noise_level in y^2, length_scale in x")
+
+    def _validation_dict(self, hyperparams_str: str, hyperparams: Dict[str, Any],
+                         units: str) -> Dict[str, Any]:
         result = {
             'sample_id': self.sample_id,
             'index_id': self.index_id,
             'group_flags': self.group_flags,
             'MAE': self.validation_mae,
             'RMSE': self.validation_rmse,
-            'Optimized Hyperparameters': self.hyperparams_str,
+            'Optimized Hyperparameters': hyperparams_str,
         }
         # Add extended metrics if available
         if self.validation_metrics_extended is not None:
@@ -220,9 +241,25 @@ class GPRFitResult:
         for k, v in self.group_flags.items():
             result[k] = v
         # Add hyperparameters
-        for param_name, param_value in self.hyperparams.items():
+        for param_name, param_value in hyperparams.items():
             clean_name = param_name.replace('__', '_').replace('k1', 'kernel1').replace('k2', 'kernel2')
             result[clean_name] = param_value
+        result['hyperparameter_units'] = units
+        return result
+
+    def get_validation_dict(self) -> Dict[str, Any]:
+        """Get validation results as dictionary (hyperparameters in GPR data units)."""
+        return self._validation_dict(self.hyperparams_str, self.hyperparams,
+                                     self.hyperparameter_units())
+
+    def get_validation_dict_standardscaler(self) -> Dict[str, Any]:
+        """Same as get_validation_dict, hyperparameters in StandardScaler fit space."""
+        result = self._validation_dict(
+            self.hyperparams_str_standardscaler, self.hyperparams_standardscaler,
+            "StandardScaler fit space: x~ = (x - scaler_X_mean)/scaler_X_std, "
+            "y~ = (y - scaler_y_mean)/(scaler_y_std*normalize_y_std)",
+        )
+        result.update(self.standardscaler_stats)
         return result
 
 
@@ -361,16 +398,18 @@ class IndividualGPRProcessor:
         X_pred: Optional[np.ndarray] = None,
         X_shared: Optional[np.ndarray] = None,
         index_id: Optional[int] = None,
+        shared_hyperparams: Optional[SharedHyperparameters] = None,
     ) -> Tuple[Optional[GPRFitResult], Optional[str]]:
         """
         Fit GPR to a single preprocessed curve with optional regulation to shared grid.
-        
+
         Workflow (when shared_grid.enabled and X_shared provided):
         ----------------------------------------------------------
         Step A: Fit GPR on training data to optimize hyperparameters θ*
+                (skipped when shared_hyperparams is given: group θ* is used)
         Step B: Refit on ALL data (train + val) with frozen θ*
         Step C: Regulate predictions to shared grid X_shared
-        
+
         Parameters
         ----------
         preprocessed_curve : PreprocessedCurve
@@ -382,6 +421,8 @@ class IndividualGPRProcessor:
             If provided and shared_grid.enabled, uses full regulation workflow.
         index_id : int, optional
             Curve index.
+        shared_hyperparams : SharedHyperparameters, optional
+            Group-level θ* and scalers (from fit_shared_hyperparameters).
             
         Returns
         -------
@@ -433,24 +474,46 @@ class IndividualGPRProcessor:
                 y_all = y_train
             
             try:
-                # Full regulation: train → refit → regulate
-                (
-                    posterior,
-                    gpr,
-                    gpr_train,
-                    scaler_X,
-                    scaler_y,
-                    hyperparams_str,
-                    hyperparams,
-                ) = full_regulation_workflow(
-                    X_train=x_train,
-                    y_train=y_train,
-                    X_all=X_all,
-                    y_all=y_all,
-                    X_shared=X_shared,
-                    physical_scale_factor=physical_scale_factor,
-                    gpr_cfg=cfg,
-                )
+                if shared_hyperparams is not None:
+                    # Group θ*: condition on train / all data (each point once;
+                    # the validation set already contains the training points)
+                    (
+                        posterior,
+                        gpr,
+                        gpr_train,
+                        scaler_X,
+                        scaler_y,
+                        hyperparams_str,
+                        hyperparams,
+                    ) = shared_hyperparameter_workflow(
+                        X_train=x_train,
+                        y_train=y_train,
+                        X_all=x_val if len(x_val) > 0 else x_train,
+                        y_all=y_val if len(x_val) > 0 else y_train,
+                        X_shared=X_shared,
+                        physical_scale_factor=physical_scale_factor,
+                        shared=shared_hyperparams,
+                        gpr_cfg=cfg,
+                    )
+                else:
+                    # Full regulation: train → refit → regulate
+                    (
+                        posterior,
+                        gpr,
+                        gpr_train,
+                        scaler_X,
+                        scaler_y,
+                        hyperparams_str,
+                        hyperparams,
+                    ) = full_regulation_workflow(
+                        X_train=x_train,
+                        y_train=y_train,
+                        X_all=X_all,
+                        y_all=y_all,
+                        X_shared=X_shared,
+                        physical_scale_factor=physical_scale_factor,
+                        gpr_cfg=cfg,
+                    )
             except Exception as e:
                 return None, f"Regulation workflow failed: {e}"
             
@@ -532,7 +595,26 @@ class IndividualGPRProcessor:
         x_pred_original: Optional[np.ndarray] = None
         if x_scaling is not None:
             x_pred_original = x_scaling.inverse_transform(x_pred_transformed.flatten())
-        
+
+        # =====================================================================
+        # Report θ* in GPR data units; keep the StandardScaler fit-space θ*
+        # only for the *_standardscaler validation file
+        # =====================================================================
+        hyperparams_str_ss, hyperparams_ss = hyperparams_str or "", hyperparams or {}
+        standardscaler_stats = {
+            'scaler_X_mean': float(scaler_X.mean_[0]),
+            'scaler_X_std': float(scaler_X.scale_[0]),
+            'scaler_y_mean': float(scaler_y.mean_[0]),
+            'scaler_y_std': float(scaler_y.scale_[0]),
+            'normalize_y_std': float(hyperparams_ss.get('normalize_y_std', 1.0)),
+        }
+        hyperparams_str, hyperparams = hyperparams_to_physical(
+            gpr.kernel_, hyperparams_ss,
+            x_mean=standardscaler_stats['scaler_X_mean'],
+            x_scale=standardscaler_stats['scaler_X_std'],
+            y_scale=standardscaler_stats['scaler_y_std'],
+        )
+
         return GPRFitResult(
             sample_id=sample_id,
             group_flags=group_flags,
@@ -556,8 +638,11 @@ class IndividualGPRProcessor:
             gpr_model_train=gpr_train,  # Training-only GPR for calibration
             scaler_X=scaler_X,
             scaler_y=scaler_y,
-            hyperparams_str=hyperparams_str or "",
-            hyperparams=hyperparams or {},
+            hyperparams_str=hyperparams_str,
+            hyperparams=hyperparams,
+            hyperparams_str_standardscaler=hyperparams_str_ss,
+            hyperparams_standardscaler=hyperparams_ss,
+            standardscaler_stats=standardscaler_stats,
             # Validation data for calibration plots
             x_val=x_val if len(x_val) > 0 else None,
             y_val=y_val if len(y_val) > 0 else None,
@@ -690,15 +775,36 @@ class IndividualGPRProcessor:
                     print(f"  Using legacy grid (regulation disabled): {len(X_shared)} points")
             
             X_shared = X_shared.reshape(-1, 1)
-            
+
+            # =====================================================================
+            # Group-level (shared) hyperparameters θ* for this group
+            # =====================================================================
+            shared_hp: Optional[SharedHyperparameters] = None
+            if self.gpr_config.shared_hyperparameters:
+                if not shared_grid_cfg.enabled:
+                    print("  WARNING: shared_hyperparameters requires shared_grid.enabled; "
+                          "falling back to per-curve hyperparameters")
+                else:
+                    shared_hp = fit_shared_hyperparameters(
+                        [c.x_train.reshape(-1, 1) for c in curves],
+                        [c.y_train for c in curves],
+                        gpr_cfg=self.gpr_config,
+                    )
+                    if self.verbose:
+                        print(f"  Shared hyperparameters ({shared_hp.n_curves} curves, "
+                              f"{shared_hp.n_points} points): {shared_hp.kernel}, "
+                              f"summed LML = {shared_hp.log_marginal_likelihood:.3f}")
+
             validation_results = []
-            
+            validation_results_standardscaler = []
+
             for curve in curves:
                 # Pass X_shared to enable regulation workflow
                 gpr_result, skip_reason = self.fit_single(
-                    curve, 
+                    curve,
                     X_pred=X_shared,  # Legacy parameter (used if regulation disabled)
                     X_shared=X_shared if shared_grid_cfg.enabled else None,  # Regulation grid
+                    shared_hyperparams=shared_hp,
                 )
                 
                 if gpr_result is not None:
@@ -706,6 +812,8 @@ class IndividualGPRProcessor:
                     results_by_group[group_key].append(gpr_result)
                     
                     validation_results.append(gpr_result.get_validation_dict())
+                    validation_results_standardscaler.append(
+                        gpr_result.get_validation_dict_standardscaler())
                     
                     # Delegate to gpr_utilities for export (pass full result for metadata)
                     if export_results and self.output_directory:
@@ -765,6 +873,11 @@ class IndividualGPRProcessor:
             if export_results and self.output_directory and validation_results:
                 export_validation_results(
                     validation_results, group_key, self.output_directory, verbose=self.verbose
+                )
+                # Same fits, θ* in StandardScaler fit space (not a hyperparameter output)
+                export_validation_results(
+                    validation_results_standardscaler, group_key, self.output_directory,
+                    verbose=self.verbose, filename_suffix="_standardscaler",
                 )
         
         result.results_by_group = dict(results_by_group)

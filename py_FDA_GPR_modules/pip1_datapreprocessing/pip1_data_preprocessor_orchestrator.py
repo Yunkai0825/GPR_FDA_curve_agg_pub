@@ -336,7 +336,11 @@ class DataPreprocessor:
             base = params.get("base", "log10")
             shift = params.get("shift", 1e-9)
             return ScalingInfo.log_transform(shift=shift, base=base)
-        
+
+        elif method_lower == "sqrt":
+            shift = params.get("shift", 0.0)
+            return ScalingInfo.sqrt_transform(shift=shift)
+
         elif method_lower == "peak":
             # Divide by peak (min or max absolute value)
             scaling_info, success = ScalingInfo.from_peak_normalization(data)

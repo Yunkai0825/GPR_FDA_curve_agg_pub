@@ -1,0 +1,2 @@
+n_bins,edge_points,points_median,points_min,points_max,gprfda_max,gprfda_rms,n_eff,n_eff_pipeline,spearman_vs_pipeline
+500,1,502.0,481,502,2.5191153761494403,1.2038379953096,64.92659488234148,33.85480427214483,0.6958295341597049

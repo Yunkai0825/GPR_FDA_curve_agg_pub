@@ -137,7 +137,29 @@ class ScalingInfo:
             transform_func=forward,
             inverse_func=inverse,
         )
-    
+
+    @classmethod
+    def sqrt_transform(cls, shift: float = 0.0) -> "ScalingInfo":
+        """
+        Create square-root transformation scaling.
+
+        Parameters
+        ----------
+        shift : float
+            Value added before the square root (x + shift must be >= 0).
+        """
+        def forward(x: np.ndarray) -> np.ndarray:
+            return np.sqrt(x + shift)
+        def inverse(x: np.ndarray) -> np.ndarray:
+            return np.square(x) - shift
+
+        return cls(
+            method="sqrt",
+            params={"shift": shift},
+            transform_func=forward,
+            inverse_func=inverse,
+        )
+
     @classmethod
     def divide_by_factor(cls, factor: Union[float, np.ndarray], method_name: str = "divide") -> "ScalingInfo":
         """

@@ -54,11 +54,13 @@ class PreprocCfg:
     x_scaling_method : str
         Scaling method for x-axis. Options:
         - "log": Log transformation (params: base, shift)
+        - "sqrt": Square-root transformation (params: shift)
         - "identity": No transformation
         Default: "log"
     x_scaling_params : Dict[str, Any]
         Parameters for x scaling method.
         For "log": {"base": "log10"|"natural", "shift": float}
+        For "sqrt": {"shift": float} (default 0.0)
         Default: {"base": "log10", "shift": 1e-9}
     
     Y Scaling (mirrors ScalingInfo):
@@ -95,7 +97,7 @@ class PreprocCfg:
     y_threshold: Any = _MISSING
     
     # X scaling (mirrors ScalingInfo)
-    x_scaling_method: str = "log"  # "log" | "identity"
+    x_scaling_method: str = "log"  # "log" | "sqrt" | "identity"
     x_scaling_params: Dict[str, Any] = field(default_factory=lambda: {"base": "log10", "shift": 1e-9})
     
     # Y scaling (mirrors ScalingInfo)

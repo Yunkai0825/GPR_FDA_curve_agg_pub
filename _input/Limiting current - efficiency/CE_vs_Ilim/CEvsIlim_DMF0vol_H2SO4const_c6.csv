@@ -1,0 +1,12 @@
+# source_file: Efficiency-limiting current data.xlsx
+# sheet: Sheet1
+# columns: Z-AD, rows 4-7
+# condition: Only water (constant H2SO4 with 25% pH~2.0)
+# dmf_vol_pct: 0
+# acid_condition: H2SO4const
+# formulas (row 3): I/I_lim (-) = Z/AA, CE (%) = AC/4*100
+I_applied,I_lim,I/I_lim (-),D (C/cm2),CE (%)
+1.0,25.29,0.03954,2.968,74.2
+5.0,25.29,0.19771,3.218,80.45
+15.0,25.29,0.59312,3.34,83.5
+25.0,25.29,0.98853,3.129,78.225

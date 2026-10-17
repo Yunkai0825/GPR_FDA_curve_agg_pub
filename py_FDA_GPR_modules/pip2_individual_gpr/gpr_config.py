@@ -188,6 +188,15 @@ class GPRCfg:
         - 'cholesky': Store Cholesky factor L where C = LL^T (saves ~50% memory)
     covariance_sparse_threshold : float
         For 'sparse' mode, values below this are set to zero.
+
+    Shared Hyperparameters:
+    -----------------------
+    shared_hyperparameters : bool
+        If True (requires shared_grid.enabled), estimate ONE kernel θ* per group
+        by maximising the summed log marginal likelihood of all curves in the
+        group, with group-level StandardScalers for X and y. Each curve is then
+        conditioned on its own data with θ* frozen. Use for sparse curves
+        (a few points each), where per-curve optimisation is ill-posed.
     """
     kernel: object = field(default_factory=_default_kernel)
     n_restarts_optimizer: int = 5
@@ -206,7 +215,10 @@ class GPRCfg:
     store_posterior_covariance: bool = True
     covariance_storage_mode: str = "full"  # 'full', 'diagonal', 'sparse', 'cholesky'
     covariance_sparse_threshold: float = 1e-6
-    
+
+    # Group-level (shared) kernel hyperparameters
+    shared_hyperparameters: bool = False
+
     def __post_init__(self):
         """Validate that all required GPR parameters were supplied."""
         _required = {

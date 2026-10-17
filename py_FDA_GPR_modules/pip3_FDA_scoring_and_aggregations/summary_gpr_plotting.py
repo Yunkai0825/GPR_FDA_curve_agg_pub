@@ -72,6 +72,7 @@ def plot_summary_gpr(
     individual_alpha: float = 0.20,
     min_time_cap: float = 0.01,
     max_time_cap: float = 1e4,
+    x_axis_scale: str = "log",
     x_axis_label: str = "X_label",
     y_axis_label: str = "Y_label",
     figsize: Tuple[int, int] = (10, 6),
@@ -104,6 +105,8 @@ def plot_summary_gpr(
         Minimum time for display (seconds).
     max_time_cap : float
         Maximum time for display (seconds).
+    x_axis_scale : str
+        "log" (default) or "linear".
     x_axis_label : str
         Label for x-axis.
     y_axis_label : str
@@ -150,7 +153,7 @@ def plot_summary_gpr(
     
     plt.xlabel(x_axis_label)
     plt.ylabel(y_axis_label)
-    plt.xscale('log')
+    plt.xscale(x_axis_scale)
     plt.xlim([min_time_cap, max_time_cap])
     plt.legend()
     plt.grid(True, alpha=0.3)
@@ -179,6 +182,7 @@ def plot_summary_comparison(
     y_axis_label: str,
     min_time_cap: float,
     max_time_cap: float,
+    x_axis_scale: str = "log",
     individual_curves: Optional[List[Tuple[np.ndarray, np.ndarray]]] = None,
     individual_alpha: float = 0.1,
     fgpr_mean: Optional[np.ndarray] = None,
@@ -232,7 +236,7 @@ def plot_summary_comparison(
     plt.title(f'{title_parts[0]}: {_format_group_key_title(group_key)}')
     plt.xlabel(x_axis_label)
     plt.ylabel(y_axis_label)
-    plt.xscale('log')
+    plt.xscale(x_axis_scale)
     plt.xlim([min_time_cap, max_time_cap])
     plt.legend()
     plt.grid(True, alpha=0.3)
@@ -264,6 +268,7 @@ def plot_summary_comparison_normalized(
     y_axis_label: str,
     min_time_cap: float,
     max_time_cap: float,
+    x_axis_scale: str = "log",
     individual_curves_norm: Optional[List[Tuple[np.ndarray, np.ndarray]]] = None,
     individual_alpha: float = 0.25,
     verbose: bool = True,
@@ -321,7 +326,7 @@ def plot_summary_comparison_normalized(
     plt.title(f'{title_tag} (normalized): {_format_group_key_title(group_key)}')
     plt.xlabel(x_axis_label)
     plt.ylabel(f'{y_axis_label} [normalized]')
-    plt.xscale('log')
+    plt.xscale(x_axis_scale)
     plt.xlim([min_time_cap, max_time_cap])
     plt.legend()
     plt.grid(True, alpha=0.3)
@@ -402,6 +407,7 @@ def plot_summary_curve_iterations(
     group_key: str = "unknown",
     min_time_cap: float = 0.01,
     max_time_cap: float = 1e4,
+    x_axis_scale: str = "log",
     x_axis_label: str = "X_label",
     y_axis_label: str = "Y_label",
     figsize: Tuple[int, int] = (10, 6),
@@ -424,6 +430,8 @@ def plot_summary_curve_iterations(
         Minimum time for x-axis.
     max_time_cap : float
         Maximum time for x-axis.
+    x_axis_scale : str
+        "log" (default) or "linear".
     x_axis_label : str
         Label for x-axis.
     y_axis_label : str
@@ -460,7 +468,7 @@ def plot_summary_curve_iterations(
     
     plt.xlabel(x_axis_label)
     plt.ylabel(y_axis_label)
-    plt.xscale('log')
+    plt.xscale(x_axis_scale)
     plt.xlim([min_time_cap, max_time_cap])
     plt.legend()
     plt.grid(True, alpha=0.3)

@@ -1,0 +1,30 @@
+curve_id,curve_index,condition,dmf_vol_pct,acid_condition,I_applied,I_lim,I/I_lim (-),D (C/cm2),CE (%)
+CEvsIlim_DMF0vol_pHadj3_c1,1,Only water,0,pHadj3,1,18.174,0.05502,2.898,72.45
+CEvsIlim_DMF0vol_pHadj3_c1,1,Only water,0,pHadj3,5,18.174,0.27512,3.202,80.05
+CEvsIlim_DMF0vol_pHadj3_c1,1,Only water,0,pHadj3,5,18.174,0.27512,3.391,84.775
+CEvsIlim_DMF0vol_pHadj3_c1,1,Only water,0,pHadj3,15,18.174,0.82535,3.198,79.95
+CEvsIlim_DMF0vol_pHadj3_c1,1,Only water,0,pHadj3,25,18.174,1.37559,2.619,65.475
+CEvsIlim_DMF0.1vol_pHadj3_c2,2,0.1vol% DMF,0.1,pHadj3,1,19.98,0.05005,3.09,77.25
+CEvsIlim_DMF0.1vol_pHadj3_c2,2,0.1vol% DMF,0.1,pHadj3,5,19.98,0.25025,3.371,84.275
+CEvsIlim_DMF0.1vol_pHadj3_c2,2,0.1vol% DMF,0.1,pHadj3,5,19.98,0.25025,3.281,82.025
+CEvsIlim_DMF0.1vol_pHadj3_c2,2,0.1vol% DMF,0.1,pHadj3,15,19.98,0.75075,3.273,81.825
+CEvsIlim_DMF0.1vol_pHadj3_c2,2,0.1vol% DMF,0.1,pHadj3,25,19.98,1.25125,2.688,67.2
+CEvsIlim_DMF10vol_pHadj3_c3,3,10vol% DMF,10,pHadj3,5,13.02996,0.38373,3.485,87.125
+CEvsIlim_DMF10vol_pHadj3_c3,3,10vol% DMF,10,pHadj3,15,13.02996,1.15119,2.822,70.55
+CEvsIlim_DMF10vol_pHadj3_c3,3,10vol% DMF,10,pHadj3,25,13.02996,1.91866,2.1,52.5
+CEvsIlim_DMF25vol_pHadj3_c4,4,25vol% DMF,25,pHadj3,1,8.8468,0.11304,3.097,77.425
+CEvsIlim_DMF25vol_pHadj3_c4,4,25vol% DMF,25,pHadj3,5,8.8468,0.56518,3.378,84.45
+CEvsIlim_DMF25vol_pHadj3_c4,4,25vol% DMF,25,pHadj3,5,8.8468,0.56518,3.402,85.05
+CEvsIlim_DMF25vol_pHadj3_c4,4,25vol% DMF,25,pHadj3,15,8.8468,1.69553,2.698,67.45
+CEvsIlim_DMF25vol_pHadj3_c4,4,25vol% DMF,25,pHadj3,15,8.8468,1.69553,2.254,56.35
+CEvsIlim_DMF50vol_pHadj3_c5,5,50vol% DMF,50,pHadj3,1,6.472,0.15451,0.74,18.5
+CEvsIlim_DMF50vol_pHadj3_c5,5,50vol% DMF,50,pHadj3,5,6.472,0.77256,2.647,66.175
+CEvsIlim_DMF0vol_H2SO4const_c6,6,Only water (constant H2SO4 with 25% pH~2.0),0,H2SO4const,1,25.29,0.03954,2.968,74.2
+CEvsIlim_DMF0vol_H2SO4const_c6,6,Only water (constant H2SO4 with 25% pH~2.0),0,H2SO4const,5,25.29,0.19771,3.218,80.45
+CEvsIlim_DMF0vol_H2SO4const_c6,6,Only water (constant H2SO4 with 25% pH~2.0),0,H2SO4const,15,25.29,0.59312,3.34,83.5
+CEvsIlim_DMF0vol_H2SO4const_c6,6,Only water (constant H2SO4 with 25% pH~2.0),0,H2SO4const,25,25.29,0.98853,3.129,78.225
+CEvsIlim_DMF10vol_H2SO4const_c7,7,10vol% DMF (constant H2SO4 with 25% pH~2.0),10,H2SO4const,1,13.02996,0.1068,2.706,67.65
+CEvsIlim_DMF10vol_H2SO4const_c7,7,10vol% DMF (constant H2SO4 with 25% pH~2.0),10,H2SO4const,5,13.02996,0.53398,3.324,83.1
+CEvsIlim_DMF10vol_H2SO4const_c7,7,10vol% DMF (constant H2SO4 with 25% pH~2.0),10,H2SO4const,5,13.02996,0.53398,3.33,83.25
+CEvsIlim_DMF10vol_H2SO4const_c7,7,10vol% DMF (constant H2SO4 with 25% pH~2.0),10,H2SO4const,15,13.02996,1.60194,3.128,78.2
+CEvsIlim_DMF10vol_H2SO4const_c7,7,10vol% DMF (constant H2SO4 with 25% pH~2.0),10,H2SO4const,25,13.02996,2.6699,2.463,61.575

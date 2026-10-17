@@ -60,6 +60,9 @@ from .gpr_functions import (
     refit_with_frozen_hyperparameters,
     regulate_to_shared_grid,
     full_regulation_workflow,
+    SharedHyperparameters,
+    fit_shared_hyperparameters,
+    shared_hyperparameter_workflow,
 )
 
 # Utility functions
@@ -112,6 +115,9 @@ __all__ = [
     "refit_with_frozen_hyperparameters",
     "regulate_to_shared_grid",
     "full_regulation_workflow",
+    "SharedHyperparameters",
+    "fit_shared_hyperparameters",
+    "shared_hyperparameter_workflow",
     # Utility functions
     "group_curves_by_primary_key",
     "group_curves_by_key",

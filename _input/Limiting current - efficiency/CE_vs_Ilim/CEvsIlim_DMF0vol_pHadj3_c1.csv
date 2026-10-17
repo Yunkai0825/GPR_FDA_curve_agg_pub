@@ -1,0 +1,13 @@
+# source_file: Efficiency-limiting current data.xlsx
+# sheet: Sheet1
+# columns: A-E, rows 4-8
+# condition: Only water
+# dmf_vol_pct: 0
+# acid_condition: pHadj3
+# formulas (row 3): I/I_lim (-) = A/B, CE (%) = D/4*100
+I_applied,I_lim,I/I_lim (-),D (C/cm2),CE (%)
+1.0,18.174,0.05502,2.898,72.45
+5.0,18.174,0.27512,3.202,80.05
+5.0,18.174,0.27512,3.391,84.775
+15.0,18.174,0.82535,3.198,79.95
+25.0,18.174,1.37559,2.619,65.475

@@ -23,9 +23,12 @@ Author: Yunkai Sun (C-STEEL, CSE, ANL)
 
 from __future__ import annotations
 
+import copy
+import warnings
 import numpy as np
-from typing import Tuple, Optional, Dict, Any, Union
+from typing import Tuple, Optional, Dict, Any, Union, List
 from dataclasses import dataclass, field
+from scipy.optimize import minimize
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error
@@ -184,6 +187,8 @@ def perform_gpr(
         - scaler_y: StandardScaler for y (statistical normalization)  
         - optimized_hyperparams_str: String representation of optimized kernel K(ϑ*)
         - hyperparams: Dict of kernel hyperparameters
+          (both in StandardScaler fit space; hyperparams_to_physical gives
+          the data-unit values that are reported)
     """
     # Same fitting logic as v1, but with clearer documentation
     kernel = gpr_cfg.kernel
@@ -245,6 +250,9 @@ def perform_gpr(
             optimized_hyperparams_str = str(gpr.kernel_)
             hyperparams = gpr.kernel_.get_params()
             hyperparams['log_marginal_likelihood'] = gpr.log_marginal_likelihood_value_
+            # Needed to express θ* and the LML in data units (hyperparams_to_physical)
+            hyperparams['log_marginal_likelihood_n_points'] = int(fit_X.shape[0])
+            hyperparams['normalize_y_std'] = float(np.ravel(getattr(gpr, '_y_train_std', 1.0))[0])
             if attempt > 0:
                 hyperparams['fit_attempt'] = attempt + 1
                 hyperparams['fit_n_train'] = int(fit_X.shape[0])
@@ -282,6 +290,176 @@ def perform_gpr(
         except Exception as e:
             print(f"Error fitting GPR: {e}")
             return None, None, None, None, None
+
+
+# =============================================================================
+# Hyperparameter Units - StandardScaler fit space → GPR data units
+# =============================================================================
+
+# Kernel hyperparameters that carry the y scale (variances) or the x scale
+_Y_VARIANCE_HYPERPARAMS = ("constant_value", "noise_level")
+_X_LENGTH_HYPERPARAMS = ("length_scale", "periodicity")
+_DIMENSIONLESS_HYPERPARAMS = ("alpha",)
+
+
+def kernel_to_physical(
+    kernel: Any,
+    x_mean: float,
+    x_scale: float,
+    y_scale: float,
+    *,
+    rtol: float = 1e-8,
+) -> Optional[Any]:
+    """
+    Express a kernel fitted in StandardScaler space in GPR data units.
+
+    perform_gpr fits on x̃ = (x - μx)/σx and ỹ = (y - μy)/σy, so the optimized
+    kernel k̃(x̃, x̃') has variances in units of σy² and length scales in units
+    of σx. In the units of the GPR data, x (pip1-transformed, e.g. log10 t)
+    and y (pip1-normalized current):
+
+        k(x, x') = σy² · k̃((x - μx)/σx, (x' - μx)/σx)
+
+    i.e. constant_value and noise_level scale by σy², length_scale and
+    periodicity by σx; bounds scale the same way. With sklearn normalize_y,
+    y_scale must include its internal std (y_scale = σy · s).
+
+    The rule is checked numerically, k(μx + σx·x̃) = y_scale²·k̃(x̃). Kernels
+    for which it does not hold (e.g. a product of two ConstantKernels, or
+    several input features) return None.
+
+    Parameters
+    ----------
+    kernel : sklearn kernel
+        Kernel in StandardScaler fit space (e.g. gpr.kernel_).
+    x_mean, x_scale : float
+        StandardScaler mean and std of x (scaler_X.mean_, scaler_X.scale_).
+    y_scale : float
+        Total y scale σy·s (scaler_y.scale_ times sklearn's _y_train_std).
+
+    Returns
+    -------
+    sklearn kernel or None
+        Kernel in GPR data units.
+    """
+    if np.size(x_mean) != 1 or np.size(x_scale) != 1:
+        return None
+    x_mean = float(np.ravel(x_mean)[0])
+    x_scale = float(np.ravel(x_scale)[0])
+    y_scale = float(np.ravel(y_scale)[0])
+
+    def _scaled(value, factor):
+        if np.ndim(value) == 0:
+            return float(value) * factor
+        return np.asarray(value, dtype=float) * factor
+
+    params = kernel.get_params(deep=True)
+    new_params = {}
+    for hp in kernel.hyperparameters:
+        last = hp.name.rsplit("__", 1)[-1]
+        if last in _Y_VARIANCE_HYPERPARAMS:
+            factor = y_scale ** 2
+        elif last in _X_LENGTH_HYPERPARAMS:
+            factor = x_scale
+        elif last in _DIMENSIONLESS_HYPERPARAMS:
+            factor = 1.0
+        else:
+            return None
+        new_params[hp.name] = _scaled(params[hp.name], factor)
+        bounds = params.get(hp.name + "_bounds")
+        if bounds is not None and not isinstance(bounds, str):
+            if np.ndim(bounds) == 1:
+                new_params[hp.name + "_bounds"] = tuple(float(b) * factor for b in bounds)
+            else:
+                new_params[hp.name + "_bounds"] = np.asarray(bounds, dtype=float) * factor
+
+    kernel_phys = copy.deepcopy(kernel)
+    kernel_phys.set_params(**new_params)
+
+    # Numerical check of k(μx + σx·x̃) = y_scale²·k̃(x̃)
+    X_fit = np.linspace(-2.0, 2.0, 9).reshape(-1, 1)
+    K_expected = y_scale ** 2 * kernel(X_fit)
+    K_phys = kernel_phys(x_mean + x_scale * X_fit)
+    atol = 1e-12 * float(np.max(np.abs(K_expected)))
+    if not np.allclose(K_phys, K_expected, rtol=rtol, atol=atol):
+        return None
+    return kernel_phys
+
+
+def hyperparams_to_physical(
+    kernel: Any,
+    hyperparams: Dict[str, Any],
+    *,
+    x_mean: float,
+    x_scale: float,
+    y_scale: float,
+) -> Tuple[str, Dict[str, Any]]:
+    """
+    Convert θ* reported in StandardScaler fit space to GPR data units.
+
+    Parameters
+    ----------
+    kernel : sklearn kernel
+        Optimized kernel in fit space (the kernel whose parameters are in
+        hyperparams, e.g. gpr.kernel_).
+    hyperparams : dict
+        Fit-space dict from perform_gpr / shared_hyperparameter_workflow:
+        kernel.get_params() plus metadata (log_marginal_likelihood,
+        log_marginal_likelihood_n_points, normalize_y_std, ...).
+    x_mean, x_scale : float
+        StandardScaler mean and std of x.
+    y_scale : float
+        StandardScaler std of y (sklearn's normalize_y std is taken from
+        hyperparams['normalize_y_std'] when present).
+
+    Returns
+    -------
+    hyperparams_str : str
+        String of the kernel in data units.
+    hyperparams : dict
+        Same keys, kernel entries in data units (kernel_to_physical).
+        Log marginal likelihoods are converted with the Jacobian of
+        ỹ = (y - μy)/y_scale: log p(y) = log p(ỹ) - n·ln(y_scale).
+        If the kernel cannot be converted, its entries are NaN and a
+        warning is issued.
+    """
+    y_scale_total = float(np.ravel(y_scale)[0]) * float(hyperparams.get('normalize_y_std', 1.0))
+    kernel_keys = set(kernel.get_params(deep=True))
+
+    kernel_phys = kernel_to_physical(kernel, x_mean, x_scale, y_scale_total)
+    if kernel_phys is None:
+        warnings.warn(
+            f"Kernel {kernel} cannot be expressed in data units; "
+            "kernel hyperparameters are reported as NaN.",
+            stacklevel=2,
+        )
+        hyperparams_str = "unavailable (kernel not convertible to data units)"
+        hp_phys: Dict[str, Any] = {k: np.nan for k in kernel_keys}
+    else:
+        hyperparams_str = str(kernel_phys)
+        hp_phys = kernel_phys.get_params(deep=True)
+
+    # Metadata; normalize_y_std is a fit-space detail and is not carried over
+    for key, value in hyperparams.items():
+        if key in kernel_keys or key == 'normalize_y_std':
+            continue
+        hp_phys[key] = value
+
+    n = hyperparams.get('log_marginal_likelihood_n_points')
+    if 'log_marginal_likelihood' in hp_phys:
+        hp_phys['log_marginal_likelihood'] = (
+            float(hyperparams['log_marginal_likelihood']) - int(n) * np.log(y_scale_total)
+            if n else np.nan
+        )
+    n_shared = hyperparams.get('shared_n_points')
+    if 'shared_log_marginal_likelihood' in hp_phys:
+        # Shared θ* is fitted with normalize_y=False on the group scalers
+        hp_phys['shared_log_marginal_likelihood'] = (
+            float(hyperparams['shared_log_marginal_likelihood'])
+            - int(n_shared) * np.log(float(np.ravel(y_scale)[0]))
+            if n_shared else np.nan
+        )
+    return hyperparams_str, hp_phys
 
 
 def generate_predictions(
@@ -791,3 +969,192 @@ def full_regulation_workflow(
     # can use the train-only GPR for out-of-sample calibration without any scaler
     # mismatch. Both models share the same scalers (fit on training data).
     return posterior, gpr_refitted, gpr_trained, scaler_X, scaler_y, hyperparams_str, hyperparams
+
+
+# =============================================================================
+# Shared (Group-Level) Hyperparameters - For Sparse Curves
+# =============================================================================
+
+@dataclass
+class SharedHyperparameters:
+    """
+    Group-level kernel θ* and statistical scalers shared by all curves of a group.
+
+    Attributes
+    ----------
+    kernel : sklearn kernel
+        Kernel with θ* = arg max_θ Σ_r log P(|f_r⟩ | θ).
+    scaler_X, scaler_y : StandardScaler
+        Scalers fit on the pooled X / y of the group (common units for θ*).
+    log_marginal_likelihood : float
+        Summed log marginal likelihood at θ* (statistically scaled units;
+        reported in data units by hyperparams_to_physical).
+    n_curves, n_points : int
+        Number of curves and pooled data points used for the estimate.
+    """
+    kernel: Any
+    scaler_X: StandardScaler
+    scaler_y: StandardScaler
+    log_marginal_likelihood: float
+    n_curves: int
+    n_points: int
+
+
+def _effective_alpha(kernel: Any, alpha: float) -> float:
+    """σ_f² term: 0 when the kernel already holds a WhiteKernel (see perform_gpr)."""
+    def _has_white(kern):
+        if kern is None:
+            return False
+        if kern.__class__.__name__ == "WhiteKernel":
+            return True
+        return any(_has_white(getattr(kern, child, None)) for child in ("k1", "k2"))
+    return 0.0 if _has_white(kernel) else alpha
+
+
+def fit_shared_hyperparameters(
+    X_list: List[np.ndarray],
+    y_list: List[np.ndarray],
+    *,
+    gpr_cfg: GPRCfg,
+    random_seed: int = 0,
+) -> SharedHyperparameters:
+    """
+    Estimate one set of kernel hyperparameters for a group of curves.
+
+    Curves are treated as independent realisations of the same GP prior:
+        θ* = arg max_θ Σ_r log P(|f_r⟩ | θ)
+    X and y are standardised with group-level scalers so θ* has the same
+    meaning for every curve. Optimised with L-BFGS-B in log-θ space from the
+    initial kernel θ plus gpr_cfg.n_restarts_optimizer random starts.
+
+    Parameters
+    ----------
+    X_list : List[np.ndarray]
+        Per-curve inputs in transformed x-space, each of shape (n_r, 1).
+    y_list : List[np.ndarray]
+        Per-curve targets in normalized space (after pip1), each (n_r,).
+    gpr_cfg : GPRCfg
+        GPR configuration (kernel, bounds, n_restarts_optimizer, alpha).
+    random_seed : int
+        Seed for the random restarts.
+
+    Returns
+    -------
+    SharedHyperparameters
+    """
+    kernel = gpr_cfg.kernel
+    alpha = _effective_alpha(kernel, gpr_cfg.alpha)
+    X_list = [np.asarray(X).reshape(-1, 1) for X in X_list]
+    y_list = [np.asarray(y).ravel() for y in y_list]
+
+    scaler_X = StandardScaler().fit(np.vstack(X_list))
+    scaler_y = StandardScaler().fit(np.concatenate(y_list).reshape(-1, 1))
+
+    # One GPR per curve holds that curve's data; θ is evaluated jointly below
+    gprs = []
+    for X, y in zip(X_list, y_list):
+        gpr = GaussianProcessRegressor(kernel=kernel, optimizer=None, alpha=alpha, normalize_y=False)  # type: ignore[arg-type]
+        gpr.fit(scaler_X.transform(X), scaler_y.transform(y.reshape(-1, 1)).ravel())
+        gprs.append(gpr)
+
+    def neg_lml(theta):
+        value, grad = 0.0, np.zeros_like(theta)
+        for gpr in gprs:
+            lml, lml_grad = gpr.log_marginal_likelihood(theta, eval_gradient=True, clone_kernel=False)
+            value += lml
+            grad += lml_grad
+        return -value, -grad
+
+    bounds = gprs[0].kernel_.bounds
+    rng = np.random.default_rng(random_seed)
+    starts = [gprs[0].kernel_.theta] + [
+        rng.uniform(bounds[:, 0], bounds[:, 1]) for _ in range(gpr_cfg.n_restarts_optimizer)
+    ]
+    best = None
+    for theta0 in starts:
+        res = minimize(neg_lml, theta0, jac=True, method="L-BFGS-B", bounds=bounds)
+        if best is None or res.fun < best.fun:
+            best = res
+    assert best is not None
+
+    return SharedHyperparameters(
+        kernel=gprs[0].kernel_.clone_with_theta(best.x),
+        scaler_X=scaler_X,
+        scaler_y=scaler_y,
+        log_marginal_likelihood=float(-best.fun),
+        n_curves=len(X_list),
+        n_points=int(sum(len(y) for y in y_list)),
+    )
+
+
+def shared_hyperparameter_workflow(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    X_all: np.ndarray,
+    y_all: np.ndarray,
+    X_shared: np.ndarray,
+    physical_scale_factor: float,
+    shared: SharedHyperparameters,
+    *,
+    gpr_cfg: GPRCfg,
+) -> Tuple[
+    PosteriorResult,
+    GaussianProcessRegressor,
+    GaussianProcessRegressor,
+    StandardScaler,
+    StandardScaler,
+    str,
+    Dict[str, Any],
+]:
+    """
+    Regulation workflow with group-level θ* (Steps B and C only).
+
+    Same return contract as full_regulation_workflow, but Step A is replaced
+    by the group estimate from fit_shared_hyperparameters: each curve is
+    conditioned on its own data with θ* and the group scalers frozen.
+
+    Parameters
+    ----------
+    X_train, y_train : np.ndarray
+        Training data of this curve (conditioning set of the train-only GPR).
+    X_all, y_all : np.ndarray
+        All data of this curve, each point once (conditioning set when
+        shared_grid.refit_on_full_data is True).
+    X_shared : np.ndarray
+        Shared grid J_R in transformed x-space, shape (n_grid, 1).
+    physical_scale_factor : float
+        The s_r from pip1 normalization.
+    shared : SharedHyperparameters
+        Group-level θ* and scalers.
+    gpr_cfg : GPRCfg
+        GPR configuration.
+    """
+    alpha = _effective_alpha(shared.kernel, gpr_cfg.alpha)
+    scaler_X, scaler_y = shared.scaler_X, shared.scaler_y
+
+    def _condition(X, y):
+        gpr = GaussianProcessRegressor(kernel=shared.kernel, optimizer=None, alpha=alpha, normalize_y=False)
+        gpr.fit(scaler_X.transform(np.asarray(X).reshape(-1, 1)),
+                scaler_y.transform(np.asarray(y).reshape(-1, 1)).ravel())
+        return gpr
+
+    gpr_trained = _condition(X_train, y_train)
+    if gpr_cfg.shared_grid.refit_on_full_data:
+        gpr_refitted = _condition(X_all, y_all)
+    else:
+        gpr_refitted = gpr_trained
+
+    posterior = regulate_to_shared_grid(
+        gpr_refitted, scaler_X, scaler_y, X_shared,
+        physical_scale_factor, gpr_cfg=gpr_cfg
+    )
+
+    hyperparams = gpr_refitted.kernel_.get_params()
+    hyperparams['log_marginal_likelihood'] = gpr_refitted.log_marginal_likelihood_value_
+    hyperparams['log_marginal_likelihood_n_points'] = int(gpr_refitted.X_train_.shape[0])
+    hyperparams['shared_hyperparameters'] = True
+    hyperparams['shared_log_marginal_likelihood'] = shared.log_marginal_likelihood
+    hyperparams['shared_n_curves'] = shared.n_curves
+    hyperparams['shared_n_points'] = shared.n_points
+    return (posterior, gpr_refitted, gpr_trained, scaler_X, scaler_y,
+            str(gpr_refitted.kernel_), hyperparams)

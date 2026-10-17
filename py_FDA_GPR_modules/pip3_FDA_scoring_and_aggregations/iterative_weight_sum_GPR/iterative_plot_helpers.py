@@ -55,6 +55,7 @@ def plot_summary_gpr_from_csv(
     output_directory: Path,
     *,
     individual_gpr_csvs: Optional[List[Path]] = None,
+    individual_curves: Optional[List[Tuple[np.ndarray, np.ndarray]]] = None,
     group_key: Optional[str] = None,
     confidence_level: float = 0.75,
     plot_individuals: bool = True,
@@ -64,6 +65,7 @@ def plot_summary_gpr_from_csv(
     x_axis_label: str = "X_label",
     y_axis_label: str = "Y_label",
     x_is_log: bool = True,
+    x_axis_scale: str = "log",
     verbose: bool = True,
 ) -> Path:
     """
@@ -72,6 +74,9 @@ def plot_summary_gpr_from_csv(
     Loads data from CSV files and calls the core plot_summary_gpr function.
     Also generates a variance comparison plot (real vs normalized) if both
     variance types are present in the CSV.
+
+    ``individual_curves`` (real-scale (x, y) pairs) takes precedence over
+    ``individual_gpr_csvs`` for the overlay.
     """
     summary_csv_path = Path(summary_csv_path)
 
@@ -99,9 +104,10 @@ def plot_summary_gpr_from_csv(
         y_upper = np.full_like(y_mean, np.nan, dtype=float)
         y_lower = np.full_like(y_mean, np.nan, dtype=float)
 
-    # Load individual curves from CSVs if provided
-    individual_curves: Optional[List[Tuple[np.ndarray, np.ndarray]]] = None
-    if plot_individuals and individual_gpr_csvs:
+    # Individual curves: in-memory (x, y) pairs take precedence over CSVs
+    if not plot_individuals:
+        individual_curves = None
+    elif individual_curves is None and individual_gpr_csvs:
         individual_curves = []
         for ind_csv in individual_gpr_csvs:
             try:
@@ -130,6 +136,7 @@ def plot_summary_gpr_from_csv(
         individual_alpha=individual_alpha,
         min_time_cap=min_time_cap,
         max_time_cap=max_time_cap,
+        x_axis_scale=x_axis_scale,
         x_axis_label=x_axis_label,
         y_axis_label=y_axis_label,
         verbose=verbose,
@@ -173,7 +180,7 @@ def plot_summary_gpr_from_csv(
 
             plt.xlabel(x_axis_label)
             plt.ylabel(y_axis_label)
-            plt.xscale('log')
+            plt.xscale(x_axis_scale)
             plt.xlim([min_time_cap, max_time_cap])
             plt.legend()
             plt.grid(True, alpha=0.3)
@@ -250,6 +257,8 @@ def plot_summary_curve_iterations_from_csv(
     x_axis_label: str = "X_label",
     y_axis_label: str = "Y_label",
     x_is_log: bool = True,
+    x_real: Optional[np.ndarray] = None,
+    x_axis_scale: str = "log",
     figsize: Tuple[int, int] = (10, 6),
     verbose: bool = True,
 ) -> Optional[Path]:
@@ -257,6 +266,8 @@ def plot_summary_curve_iterations_from_csv(
     CSV wrapper: Plot summary curve iterations from Curve_History CSV.
     
     Loads data from CSV and calls the core plot_summary_curve_iterations function.
+    ``x_real`` (original-scale grid) takes precedence over inverting
+    ``x_transformed`` with ``x_is_log``.
     """
     csv_path = Path(csv_path)
 
@@ -277,7 +288,10 @@ def plot_summary_curve_iterations_from_csv(
 
     # Get x values and convert from log if needed
     x_transformed = df['x_transformed'].to_numpy()
-    x_display = np.exp(x_transformed) if x_is_log else x_transformed
+    if x_real is not None and len(x_real) == len(x_transformed):
+        x_display = np.asarray(x_real)
+    else:
+        x_display = np.exp(x_transformed) if x_is_log else x_transformed
 
     # Get iteration columns
     iter_cols = [c for c in df.columns if c.startswith('iter_')]
@@ -298,6 +312,7 @@ def plot_summary_curve_iterations_from_csv(
         group_key=group_key,
         min_time_cap=min_time_cap,
         max_time_cap=max_time_cap,
+        x_axis_scale=x_axis_scale,
         x_axis_label=x_axis_label,
         y_axis_label=y_axis_label,
         figsize=figsize,
@@ -363,6 +378,7 @@ def plot_iterative_sigma_calibration(
     *,
     x_axis_label: str = "Time (s)",
     y_axis_label: str = "Current (A/cm²)",
+    x_axis_scale: str = "log",
     verbose: bool = True,
     dpi: int = 200,
 ) -> Optional[Path]:
@@ -421,7 +437,7 @@ def plot_iterative_sigma_calibration(
     ax0.fill_between(x, -std_r, std_r, color='C0', alpha=0.25, label='Iterative 1σ')
     ax0.scatter(np.tile(x, len(y_real_stack)), dev_real.flatten(),
                 s=6, alpha=0.08, color='gray', label='Samples')
-    ax0.set_xscale('log')
+    ax0.set_xscale(x_axis_scale)
     ax0.set_xlabel(x_axis_label)
     ax0.set_ylabel(f"Deviation ({y_axis_label})")
     ax0.set_title(f"Iterative σ calibration (real): {title_str}")
@@ -456,7 +472,7 @@ def plot_iterative_sigma_calibration(
             ax1.fill_between(x, -std_n, std_n, color='C1', alpha=0.25, label='Iterative 1σ (norm)')
             ax1.scatter(np.tile(x, len(y_norm_stack)), dev_norm.flatten(),
                         s=6, alpha=0.08, color='gray', label='Samples (norm)')
-            ax1.set_xscale('log')
+            ax1.set_xscale(x_axis_scale)
             ax1.set_xlabel(x_axis_label)
             ax1.set_ylabel(f"Deviation ({y_axis_label}, norm)")
             ax1.set_title(f"Iterative σ calibration (norm): {title_str}")

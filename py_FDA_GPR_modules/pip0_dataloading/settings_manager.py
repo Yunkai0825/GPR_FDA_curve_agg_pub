@@ -366,19 +366,21 @@ class SettingsManager:
             - metadata_keys: List[dict] with {name, token_index, dtype, regex_extract}
             - primary_grouping_key: str (first grouping key by default)
             - fallback_to_file_content: bool
+            - x_col, y_col: str or None (pip1 column names)
         """
         pip0 = self.get_raw("pip0_dataloading")
         parsing = pip0.get("filename_parsing", {})
-        
+        col_names = self.get_raw("pip1_datapreprocessing").get("column_names", {})
+
         # Get grouping keys
         grouping_keys = parsing.get("grouping_keys", [])
-        
+
         # Determine primary grouping key: explicit setting > first grouping key > empty
         primary_key = pip0.get("primary_grouping_key")
         if not primary_key and grouping_keys:
             primary_key = grouping_keys[0].get("name", "")
         primary_key = primary_key or ""
-        
+
         return {
             "file_extension": pip0.get("file_extension", ".cor"),
             "delimiter": parsing.get("delimiter", "_"),
@@ -386,6 +388,9 @@ class SettingsManager:
             "metadata_keys": parsing.get("metadata_keys", []),
             "primary_grouping_key": primary_key,
             "fallback_to_file_content": pip0.get("fallback_to_file_content", True),
+            # x/y data column names (used for LoadedCurve.x_raw / y_raw)
+            "x_col": col_names.get("x_col"),
+            "y_col": col_names.get("y_col"),
         }
 
     # =========================================================================
@@ -514,6 +519,8 @@ class SettingsManager:
             store_posterior_covariance=posterior_cov_cfg.get("store_full_covariance", True),
             covariance_storage_mode=posterior_cov_cfg.get("storage_mode", "full"),
             covariance_sparse_threshold=posterior_cov_cfg.get("sparse_threshold", 1e-6),
+            # Group-level (shared) hyperparameters for sparse curves
+            shared_hyperparameters=gpr_params.get("shared_hyperparameters", False),
         )
         
         # Get column names and transform info from pip1 for axis labels
@@ -612,6 +619,7 @@ class SettingsManager:
             y_transform_method=y_transform,  # for normalized iteration plots
             min_time_cap=plot.get("min_time_cap", 1e-4),
             max_time_cap=plot.get("max_time_cap", None),
+            x_axis_scale=plot.get("x_axis_scale", "log"),
         )
         
         hyperparams = SummaryGPRHyperParams(

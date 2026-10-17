@@ -1,0 +1,3 @@
+linear_time_axis,n_bins,edge_points,n_training_points,first_training_t_s,scale_factor_mA,notes
+0,500,0,370,0.09090909000000005,-18.86219373607891,-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-4_CTAB_diaphram_20230503.cor_curve_43
+1,500,1,502,0.09090909,-18.86219373607891,-1.95V_pH1.46_ Na2SO4_ H3Cit_NiFeCoCu_acidB(BVR1)_Ru-4_CTAB_diaphram_20230503.cor_curve_43

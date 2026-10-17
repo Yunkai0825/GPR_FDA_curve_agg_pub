@@ -1,0 +1,6 @@
+potential_v,n_curves,gprfda_iterations,gprfda_converged,pointwise_iterations,pointwise_converged
+-1.75,4,7,1,39,1
+-1.85,4,7,1,119,1
+-1.95,154,35,1,388,1
+-2.05,9,20,1,125,1
+-2.15,12,12,1,96,1
